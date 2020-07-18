@@ -1,0 +1,10 @@
+apiVersion: 1
+events:
+- request(microservice_response=FALSE)
+- request(microservice_response=FALSE)
+- request(microservice_response=FALSE)
+- clock
+- request(microservice_response=FALSE)
+kind: sequence
+metadata:
+  name: edges coverage

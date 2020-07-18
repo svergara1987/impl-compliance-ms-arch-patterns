@@ -1,0 +1,24 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClass = 'ProbCliCustomStrategy'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven {
+		name "snapshot"
+		url "https://oss.sonatype.org/content/repositories/snapshots/"
+	}
+}
+
+dependencies {
+	implementation "de.hhu.stups:de.prob2.kernel:3.11.0"
+	implementation "net.sourceforge.argparse4j:argparse4j:0.8.1"
+	implementation "org.yaml:snakeyaml:1.26"
+}

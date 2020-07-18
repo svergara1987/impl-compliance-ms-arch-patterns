@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<extended_test_suite>
+	<test_case><initialisation><value type="constant" name="AMOUNT_TEST_REQUESTS">3</value><value type="constant" name="THRESHOLD">3</value><value type="constant" name="TIMEOUT_PERIOD">2</value><value type="variable" name="circuit_breaker">CLOSED</value><value type="variable" name="consecutive_errors">0</value><value type="variable" name="test_request_to_go">3</value><value type="variable" name="time">0</value><value type="variable" name="timestamp_cb_trips">0</value></initialisation><step name="request"><value name="microservice_response">TRUE</value>
+      <value name="new_circuit_breaker">CLOSED</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">0</value>
+    </step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">CLOSED</value>
+      <value name="new_consecutive_errors">1</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">0</value>
+    <modified name="consecutive_errors">1</modified></step><step name="request"><value name="microservice_response">TRUE</value>
+      <value name="new_circuit_breaker">CLOSED</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">0</value>
+    <modified name="consecutive_errors">0</modified></step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">CLOSED</value>
+      <value name="new_consecutive_errors">1</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">0</value>
+    <modified name="consecutive_errors">1</modified></step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">CLOSED</value>
+      <value name="new_consecutive_errors">2</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">0</value>
+    <modified name="consecutive_errors">2</modified></step><step name="request"><value name="microservice_response">TRUE</value>
+      <value name="new_circuit_breaker">CLOSED</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">0</value>
+    <modified name="consecutive_errors">0</modified></step><step name="request"><value name="microservice_response">TRUE</value>
+      <value name="new_circuit_breaker">CLOSED</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">0</value>
+    </step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">CLOSED</value>
+      <value name="new_consecutive_errors">1</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">0</value>
+    <modified name="consecutive_errors">1</modified></step><step name="clock"><value name="new_circuit_breaker">CLOSED</value>
+    <modified name="time">1</modified></step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">CLOSED</value>
+      <value name="new_consecutive_errors">2</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">0</value>
+    <modified name="consecutive_errors">2</modified></step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">3</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">1</value>
+    <modified name="circuit_breaker">OPEN</modified><modified name="consecutive_errors">3</modified><modified name="timestamp_cb_trips">1</modified></step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">1</value>
+    <modified name="consecutive_errors">0</modified></step><step name="request"><value name="microservice_response">TRUE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">1</value>
+    </step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">1</value>
+    </step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">1</value>
+    </step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">1</value>
+    </step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">1</value>
+    </step><step name="clock"><value name="new_circuit_breaker">OPEN</value>
+    <modified name="time">2</modified></step><step name="clock"><value name="new_circuit_breaker">HALF_OPEN</value>
+    <modified name="circuit_breaker">HALF_OPEN</modified><modified name="time">3</modified></step><step name="request"><value name="microservice_response">TRUE</value>
+      <value name="new_circuit_breaker">HALF_OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">2</value>
+      <value name="new_timestamp_cb_trips">3</value>
+    <modified name="test_request_to_go">2</modified><modified name="timestamp_cb_trips">3</modified></step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">3</value>
+    <modified name="circuit_breaker">OPEN</modified><modified name="test_request_to_go">3</modified></step><step name="clock"><value name="new_circuit_breaker">OPEN</value>
+    <modified name="time">4</modified></step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">3</value>
+    </step><step name="request"><value name="microservice_response">TRUE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">3</value>
+    </step><step name="clock"><value name="new_circuit_breaker">HALF_OPEN</value>
+    <modified name="circuit_breaker">HALF_OPEN</modified><modified name="time">5</modified></step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">5</value>
+    <modified name="circuit_breaker">OPEN</modified><modified name="timestamp_cb_trips">5</modified></step><step name="request"><value name="microservice_response">TRUE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">5</value>
+    </step><step name="request"><value name="microservice_response">FALSE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">5</value>
+    </step><step name="request"><value name="microservice_response">TRUE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">5</value>
+    </step><step name="request"><value name="microservice_response">TRUE</value>
+      <value name="new_circuit_breaker">OPEN</value>
+      <value name="new_consecutive_errors">0</value>
+      <value name="new_test_request_to_go">3</value>
+      <value name="new_timestamp_cb_trips">5</value>
+    </step></test_case></extended_test_suite>
