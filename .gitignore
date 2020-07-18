@@ -1,3 +1,6 @@
-eventb2xml/java/bin/*
-eventb2xml/java/build/*
-eventb2xml/java/gradle/*
+eventb2xml/java/bin
+eventb2xml/java/build
+eventb2xml/java/gradle
+eventb2xml/java/.gradle
+eventb2xml/py/__pycache__
+notebooks/.ipynb_checkpoints
