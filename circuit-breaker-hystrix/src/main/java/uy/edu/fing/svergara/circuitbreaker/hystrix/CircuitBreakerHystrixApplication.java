@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.netflix.hystrix.Hystrix;
+import com.netflix.hystrix.HystrixCircuitBreaker;
+import com.netflix.hystrix.HystrixCommandKey;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
@@ -26,27 +29,34 @@ import uy.edu.fing.svergara.circuitbreaker.hystrix.service.PeopleService;
 @SpringBootApplication
 public class CircuitBreakerHystrixApplication {
 
+	// rolling window, in milliseconds. This is how long
+	// metrics are kept for the thread pool.
+	private static final String BUCKETS_IN_ROLLING_WINDOW = "1"; // This property sets the number of buckets the rolling
+																	// window that will trip the circuit. For example,
+																	// if the value is
+	// 20, then if only 19 requests are received in the rolling window
+	// (say a window of 10 seconds) the circuit will not trip open even
+	// if all 19 failed.
+	private static final String ERROR_THRESHOLD_PERCENTAGE = "1"; // This property sets the error percentage at or
 	private static final String EXECUTION_TIMEOUT_IN_MILLISECONDS = "3000"; // This property sets the time in
-																			// milliseconds after which the caller will
-																			// observe a timeout and walk away from the
-																			// command execution. Hystrix marks the
-																			// HystrixCommand as a TIMEOUT, and performs
-																			// fallback logic. Note that there is
-																			// configuration for turning off timeouts
-																			// per-command, if that is desired (see
-																			// command.timeout.enabled).
+	// above which the circuit should trip open and
+	// start short-circuiting requests to fallback
+	// logic.
+	private static final String ROLLING_WINDOW_TIME = "3000"; // This property sets the duration of the statistical
+																// milliseconds after which the caller will
+																// observe a timeout and walk away from the
+																// command execution. Hystrix marks the
+																// HystrixCommand as a TIMEOUT, and performs
+																// fallback logic. Note that there is
+																// configuration for turning off timeouts
+																// per-command, if that is desired (see
+																// command.timeout.enabled).
 	private static final String THRESHOLD = "3"; // This property sets the minimum number of requests in a rolling
-													// window that will trip the circuit. For example, if the value is
-													// 20, then if only 19 requests are received in the rolling window
-													// (say a window of 10 seconds) the circuit will not trip open even
-													// if all 19 failed.
-	private static final String ERROR_THRESHOLD_PERCENTAGE = "50"; // This property sets the error percentage at or
-																	// above which the circuit should trip open and
-																	// start short-circuiting requests to fallback
-																	// logic.
-	private static final String ROLLING_WINDOW_TIME = "10000"; // This property sets the duration of the statistical
-																// rolling window, in milliseconds. This is how long
-																// metrics are kept for the thread pool.
+													// statistical window is divided into. The following
+													// must be true —
+													// “metrics.rollingStats.timeInMilliseconds %
+													// metrics.rollingStats.numBuckets == 0” — otherwise
+													// it will throw an exception.
 	private static final String TIMEOUT_PERIOD = "3000"; // This property sets the amount of time, after tripping the
 															// circuit, to reject requests before allowing attempts
 															// again to determine if the circuit should again be closed.
@@ -73,16 +83,22 @@ public class CircuitBreakerHystrixApplication {
 		return new ResponseEntity<>(peopleService.delete(currentEmail), HttpStatus.OK);
 	}
 
+	@SuppressWarnings("unused")
+	private ResponseEntity<Object> fallbackList(Integer milliseconds, Boolean fail) {
+		return new ResponseEntity<>("fallback list", HttpStatus.OK);
+	}
+
 	@Bean
 	public RestTemplate getRestTemplate() {
 		return new RestTemplate();
 	}
 
-	@HystrixCommand(fallbackMethod = "fallbackList", commandProperties = {
+	@HystrixCommand(fallbackMethod = "fallbackList", commandKey = "list", commandProperties = {
 			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = EXECUTION_TIMEOUT_IN_MILLISECONDS),
 			@HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = THRESHOLD),
 			@HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = ERROR_THRESHOLD_PERCENTAGE),
 			@HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = ROLLING_WINDOW_TIME),
+			@HystrixProperty(name = "metrics.rollingStats.numBuckets", value = BUCKETS_IN_ROLLING_WINDOW),
 			@HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = TIMEOUT_PERIOD) })
 	@RequestMapping(method = RequestMethod.GET, value = "/people")
 	public ResponseEntity<Object> list(@RequestParam(value = "delayed", required = false) Integer milliseconds,
@@ -101,18 +117,26 @@ public class CircuitBreakerHystrixApplication {
 		return new ResponseEntity<>(peopleService.register(person), HttpStatus.OK);
 	}
 
+	@RequestMapping(method = RequestMethod.DELETE, value = "/reset")
+	public ResponseEntity<Object> reset() {
+		Hystrix.reset();
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
 	@RequestMapping(method = RequestMethod.GET, value = "/people/{email}")
 	public ResponseEntity<Object> retrieve(@PathVariable("email") String email) {
 		return new ResponseEntity<>(peopleService.retrieve(email), HttpStatus.OK);
 	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/status")
+	public ResponseEntity<Object> status() {
+		HystrixCommandKey hystrixCommandKey = HystrixCommandKey.Factory.asKey("list");
+		HystrixCircuitBreaker circuitBreaker = HystrixCircuitBreaker.Factory.getInstance(hystrixCommandKey);
+		return new ResponseEntity<>(circuitBreaker, HttpStatus.OK);
+	}
+
 	@RequestMapping(method = RequestMethod.PUT, value = "/people/{email}")
 	public ResponseEntity<Object> update(@PathVariable("email") String currentEmail, @RequestBody Person person) {
 		return new ResponseEntity<>(peopleService.update(currentEmail, person), HttpStatus.OK);
-	}
-
-	@SuppressWarnings("unused")
-	private ResponseEntity<Object> fallbackList(Integer milliseconds, Boolean fail) {
-		return new ResponseEntity<>("fallback list", HttpStatus.OK);
 	}
 }
