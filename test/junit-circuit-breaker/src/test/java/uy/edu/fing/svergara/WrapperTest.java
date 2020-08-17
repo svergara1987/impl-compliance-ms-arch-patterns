@@ -7,13 +7,13 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class AppTest extends TestCase {
+public class WrapperTest extends TestCase {
 	/**
 	 * Create the test case
 	 *
 	 * @param testName name of the test case
 	 */
-	public AppTest(String testName) {
+	public WrapperTest(String testName) {
 		super(testName);
 	}
 
@@ -23,7 +23,7 @@ public class AppTest extends TestCase {
 	 * @return the suite of tests being tested
 	 */
 	public static Test suite() {
-		return new TestSuite(AppTest.class);
+		return new TestSuite(WrapperTest.class);
 	}
 
 	public void testCase_1() {
@@ -38,7 +38,7 @@ public class AppTest extends TestCase {
 		Integer time = 0;
 		Boolean microservice_response = null;
 		// case execution
-		App app = new App();
+		Wrapper app = new Wrapper();
 		app.initialisation(THRESHOLD, AMOUNT_TEST_REQUESTS, TIMEOUT_PERIOD, test_request_to_go, timestamp_cb_trips, consecutive_errors, circuit_breaker, time);
 		// step 1
 		microservice_response = false;
@@ -79,7 +79,7 @@ public class AppTest extends TestCase {
 		Integer time = 0;
 		Boolean microservice_response = null;
 		// case execution
-		App app = new App();
+		Wrapper app = new Wrapper();
 		app.initialisation(THRESHOLD, AMOUNT_TEST_REQUESTS, TIMEOUT_PERIOD, test_request_to_go, timestamp_cb_trips, consecutive_errors, circuit_breaker, time);
 		// step 1
 		microservice_response = true;
@@ -99,7 +99,7 @@ public class AppTest extends TestCase {
 		Integer time = 0;
 		Boolean microservice_response = null;
 		// case execution
-		App app = new App();
+		Wrapper app = new Wrapper();
 		app.initialisation(THRESHOLD, AMOUNT_TEST_REQUESTS, TIMEOUT_PERIOD, test_request_to_go, timestamp_cb_trips, consecutive_errors, circuit_breaker, time);
 		// step 1
 		app.clock();
