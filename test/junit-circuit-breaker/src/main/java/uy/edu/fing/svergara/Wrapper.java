@@ -12,7 +12,7 @@ import okhttp3.Response;
  * Hello world!
  *
  */
-public class App {
+public class Wrapper {
 
 	/**
 	 * Initialization runs once before the first test in test suite
