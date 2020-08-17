@@ -1,6 +1,7 @@
 ---
 projectLocation: .
-projectName: junit-circuit-breaker
+groupId: uy.edu.fing.svergara
+artifactId: junit-circuit-breaker
 types:
   - name: CircuitBreaker
     supertype: enum
