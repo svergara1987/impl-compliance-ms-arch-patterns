@@ -1,4 +1,4 @@
-package uy.fing.edu.svergara.xml2junit.model;
+package uy.fing.edu.svergara.xml2junit.model.testcasesxml;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -6,14 +6,12 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlValue;
 
-@XmlRootElement(name = "value")
+@XmlRootElement(name = "modified")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Value {
+public class Modified {
 
 	@XmlAttribute
 	private String name;
-	@XmlAttribute
-	private String type;
 	@XmlValue
 	private String value;
 
@@ -21,23 +19,16 @@ public class Value {
 		return name;
 	}
 
-	public String getType() {
-		return type;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getValue() {
 		return value;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
 	public void setValue(String value) {
 		this.value = value;
 	}
+
 }

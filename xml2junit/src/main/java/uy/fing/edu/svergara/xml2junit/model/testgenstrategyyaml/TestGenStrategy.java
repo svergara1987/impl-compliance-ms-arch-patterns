@@ -1,6 +1,9 @@
-package uy.fing.edu.svergara.xml2junit.model;
+package uy.fing.edu.svergara.xml2junit.model.testgenstrategyyaml;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TestGenStrategy {
 
@@ -23,10 +26,16 @@ public class TestGenStrategy {
 	}
 
 	public List<Type> getTypes() {
+		if (types == null) {
+			types = new ArrayList<>();
+		}
 		return types;
 	}
 
 	public List<Variable> getVariables() {
+		if (variables == null) {
+			variables = new ArrayList<>();
+		}
 		return variables;
 	}
 
@@ -48,5 +57,13 @@ public class TestGenStrategy {
 
 	public void setVariables(List<Variable> variables) {
 		this.variables = variables;
+	}
+
+	public Map<String, Variable> buildVariablesMap() {
+		Map<String, Variable> variableMap = new HashMap<>();
+		for (Variable aVariable : getVariables()) {
+			variableMap.put(aVariable.getName(), aVariable);
+		}
+		return variableMap;
 	}
 }
