@@ -1,4 +1,4 @@
-package uy.fing.edu.svergara.xml2junit.model;
+package uy.fing.edu.svergara.xml2junit.model.testgenstrategyyaml;
 
 public class Variable {
 
@@ -7,6 +7,9 @@ public class Variable {
 	private String type;
 
 	public Boolean getIgnore() {
+		if (ignore == null) {
+			setIgnore(false);
+		}
 		return ignore;
 	}
 

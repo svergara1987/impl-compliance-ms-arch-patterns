@@ -31,9 +31,9 @@
 			<version>2.3.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.velocity</groupId>
-			<artifactId>velocity-engine-core</artifactId>
-			<version>2.2</version>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.30</version>
 		</dependency>
 	</dependencies>
 </project>

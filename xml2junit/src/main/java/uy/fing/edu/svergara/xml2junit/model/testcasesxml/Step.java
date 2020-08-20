@@ -1,4 +1,4 @@
-package uy.fing.edu.svergara.xml2junit.model;
+package uy.fing.edu.svergara.xml2junit.model.testcasesxml;
 
 import java.util.ArrayList;
 import java.util.List;

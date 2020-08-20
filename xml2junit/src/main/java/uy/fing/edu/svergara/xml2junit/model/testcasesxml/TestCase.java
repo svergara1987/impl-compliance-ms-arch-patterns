@@ -1,4 +1,4 @@
-package uy.fing.edu.svergara.xml2junit.model;
+package uy.fing.edu.svergara.xml2junit.model.testcasesxml;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +13,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class TestCase {
 
 	@XmlElement(name = "initialisation")
-	private Initialization initialization;
+	private Step initialisation;
 	@XmlElement(name = "step")
 	private List<Step> steps = null;
 
-	public Initialization getInitialization() {
-		return initialization;
+	public Step getInitialisation() {
+		initialisation.setName("initialisation");
+		return initialisation;
 	}
 
 	public List<Step> getSteps() {
@@ -28,8 +29,8 @@ public class TestCase {
 		return steps;
 	}
 
-	public void setInitialization(Initialization initialization) {
-		this.initialization = initialization;
+	public void setInitialisation(Step initialisation) {
+		this.initialisation = initialisation;
 	}
 
 	public void setSteps(List<Step> steps) {

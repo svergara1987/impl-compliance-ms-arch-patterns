@@ -1,4 +1,4 @@
-package uy.fing.edu.svergara.xml2junit.model;
+package uy.fing.edu.svergara.xml2junit.model.testgenstrategyyaml;
 
 import java.util.List;
 
