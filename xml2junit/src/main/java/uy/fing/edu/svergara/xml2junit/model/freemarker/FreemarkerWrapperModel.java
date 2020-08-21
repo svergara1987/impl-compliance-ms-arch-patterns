@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FreemarkerWrapperModel {
-	
+
 	private List<Operation> operations;
 	private String packageName;
 
@@ -26,5 +26,4 @@ public class FreemarkerWrapperModel {
 	public void setPackageName(String packageName) {
 		this.packageName = packageName;
 	}
-
 }

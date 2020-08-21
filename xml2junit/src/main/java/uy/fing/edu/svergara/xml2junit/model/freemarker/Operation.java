@@ -9,6 +9,7 @@ public class Operation {
 	private List<Parameter> parameters;
 	@SuppressWarnings("unused")
 	private List<String> parametersStrRep;
+	private String returnType;
 
 	public String getName() {
 		return name;
@@ -29,12 +30,26 @@ public class Operation {
 		return parametersStrRep;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getReturnType() {
+		if (returnType == null) {
+			returnType = "void";
+		}
+		return returnType;
 	}
 
-	public void setParameters(List<Parameter> parameters) {
+	public Operation setName(String name) {
+		this.name = name;
+		return this;
+	}
+
+	public Operation setParameters(List<Parameter> parameters) {
 		this.parameters = parameters;
+		return this;
+	}
+
+	public Operation setReturnType(String returnType) {
+		this.returnType = returnType;
+		return this;
 	}
 
 }

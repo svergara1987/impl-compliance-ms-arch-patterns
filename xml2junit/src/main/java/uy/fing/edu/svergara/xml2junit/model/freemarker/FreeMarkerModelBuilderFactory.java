@@ -39,6 +39,7 @@ public class FreeMarkerModelBuilderFactory {
 			if (!operations.contains(aTestCase.getInitialisation().getName())) {
 				operations.add(aTestCase.getInitialisation().getName());
 				freemarkerModel.getOperations().add(buildOperation(aTestCase.getInitialisation(), variableMap));
+				freemarkerModel.getOperations().add(buildIsValidOperation(aTestCase.getInitialisation(), variableMap));
 			}
 			for (Step aStep : aTestCase.getSteps()) {
 				if (!operations.contains(aStep.getName())) {
@@ -46,9 +47,34 @@ public class FreeMarkerModelBuilderFactory {
 					freemarkerModel.getOperations().add(buildOperation(aStep, variableMap));
 				}
 			}
-
 		}
 		return freemarkerModel;
+	}
+
+	public FreemarkerWrapperModel buildFreemarkerWrapperTestDataModel(TestGenStrategy testGenStrategy,
+			ExtendedTestSuite extendedTestSuite) {
+		// TODO FALTA ARMARLO
+		return null;
+	}
+
+	private Operation buildIsValidOperation(Step initialisation, Map<String, Variable> variableMap) {
+		Operation isValid = new Operation().setName("isValid").setReturnType(Boolean.class.getSimpleName());
+		for (Value aValue : initialisation.getValues()) {
+			if ("variable".equalsIgnoreCase(aValue.getType())) {
+				if (variableMap.containsKey(aValue.getName())) {
+					if (!variableMap.get(aValue.getName()).getIgnore()) {
+						isValid.getParameters().add(new Parameter().setName(aValue.getName())
+								.setType(variableMap.get(aValue.getName()).getType()));
+					}
+				} else {
+					// defaults to String if not defined
+					isValid.getParameters()
+							.add(new Parameter().setName(aValue.getName()).setType(String.class.getSimpleName()));
+				}
+			}
+		}
+		return isValid;
+
 	}
 
 	private Operation buildOperation(Step step, Map<String, Variable> variableMap) {

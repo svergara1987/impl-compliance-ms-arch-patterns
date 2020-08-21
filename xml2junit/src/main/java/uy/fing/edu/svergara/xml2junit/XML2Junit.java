@@ -86,6 +86,11 @@ public class XML2Junit {
 				throw new RuntimeException(aType.getName() + " supertype attribute is not valid");
 			}
 		}
+		System.out.println("--------------------------------------------------------");
+		Template wrapperTestTemplate = configuration.getTemplate("WrapperTest.ftl");
+		wrapperTestTemplate.process(FreeMarkerModelBuilderFactory.instance()
+				.buildFreemarkerWrapperTestDataModel(testGenStrategy, extendedTestSuite), out);
+		System.out.println("--------------------------------------------------------");
 	}
 
 	private ExtendedTestSuite parseTestCasesXml(String xmlStrategyFilePath) throws JAXBException {
