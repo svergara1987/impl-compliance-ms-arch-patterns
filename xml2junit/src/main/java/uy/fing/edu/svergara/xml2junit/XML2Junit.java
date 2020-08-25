@@ -26,6 +26,7 @@ import net.sourceforge.argparse4j.inf.ArgumentParser;
 import net.sourceforge.argparse4j.inf.ArgumentParserException;
 import net.sourceforge.argparse4j.inf.Namespace;
 import uy.fing.edu.svergara.xml2junit.model.freemarker.FreeMarkerModelBuilderFactory;
+import uy.fing.edu.svergara.xml2junit.model.freemarker.FreemarkerWrapperModel;
 import uy.fing.edu.svergara.xml2junit.model.testcasesxml.ExtendedTestSuite;
 import uy.fing.edu.svergara.xml2junit.model.testgenstrategyyaml.TestGenStrategy;
 import uy.fing.edu.svergara.xml2junit.model.testgenstrategyyaml.Type;
@@ -72,14 +73,13 @@ public class XML2Junit {
 		Configuration configuration = setupFreemarker();
 		Writer out = new OutputStreamWriter(System.out);
 		System.out.println("--------------------------------------------------------");
-		Template wrapperTemplate = configuration.getTemplate("Wrapper.ftl");
-		wrapperTemplate.process(FreeMarkerModelBuilderFactory.instance()
-				.buildFreemarkerWrapperDataModel(testGenStrategy, extendedTestSuite), out);
+		FreemarkerWrapperModel freemarkerWrapperModel = FreeMarkerModelBuilderFactory.instance()
+				.buildFreemarkerWrapperDataModel(testGenStrategy, extendedTestSuite);
+		configuration.getTemplate("Wrapper.ftl").process(freemarkerWrapperModel, out);
 		System.out.println("--------------------------------------------------------");
-		Template enumTemplate = configuration.getTemplate("Enum.ftl");
 		for (Type aType : testGenStrategy.getTypes()) {
 			if ("enum".equalsIgnoreCase(aType.getSupertype())) {
-				enumTemplate.process(
+				configuration.getTemplate("Enum.ftl").process(
 						FreeMarkerModelBuilderFactory.instance().buildFreemarkerEnumrDataModel(testGenStrategy, aType),
 						out);
 			} else {
@@ -87,9 +87,8 @@ public class XML2Junit {
 			}
 		}
 		System.out.println("--------------------------------------------------------");
-		Template wrapperTestTemplate = configuration.getTemplate("WrapperTest.ftl");
-		wrapperTestTemplate.process(FreeMarkerModelBuilderFactory.instance()
-				.buildFreemarkerWrapperTestDataModel(testGenStrategy, extendedTestSuite), out);
+		configuration.getTemplate("WrapperTest.ftl").process(FreeMarkerModelBuilderFactory.instance()
+				.buildFreemarkerWrapperTestDataModel(testGenStrategy, extendedTestSuite, freemarkerWrapperModel), out);
 		System.out.println("--------------------------------------------------------");
 	}
 

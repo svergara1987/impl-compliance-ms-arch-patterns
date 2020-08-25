@@ -1,6 +1,7 @@
 package uy.fing.edu.svergara.xml2junit.model.testcasesxml;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -21,6 +22,9 @@ public class Step {
 	private List<Value> values = null;
 
 	public List<Modified> getModifieds() {
+		if (modifieds == null) {
+			modifieds = new ArrayList<>();
+		}
 		return modifieds;
 	}
 
@@ -31,6 +35,14 @@ public class Step {
 	public List<Value> getValues() {
 		if (values == null) {
 			values = new ArrayList<>();
+		} else {
+			values.sort(new Comparator<Value>() {
+
+				@Override
+				public int compare(Value v1, Value v2) {
+					return v1.getName().compareTo(v2.getName());
+				}
+			});
 		}
 		return values;
 	}
