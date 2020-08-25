@@ -1,5 +1,5 @@
 package uy.edu.fing.svergara;
 
-public enum circuit_breaker {
+public enum CircuitBreaker {
 	CLOSED, OPEN, HALF_OPEN
 }

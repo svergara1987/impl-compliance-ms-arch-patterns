@@ -17,9 +17,9 @@ public class Wrapper {
 	/**
 	 * Initialization runs once before the first test in test suite
 	 */
-	public void initialisation(Integer THRESHOLD, Integer AMOUNT_TEST_REQUESTS, Integer TIMEOUT_PERIOD,
-			Integer test_request_to_go, Integer timestamp_cb_trips, Integer consecutive_errors,
-			circuit_breaker circuit_breaker, Integer time) {
+	public void initialisation(Integer AMOUNT_TEST_REQUESTS, Integer THRESHOLD, Integer TIMEOUT_PERIOD,
+			CircuitBreaker circuit_breaker, Integer consecutive_errors, Integer test_request_to_go, Integer time,
+			Integer timestamp_cb_trips) {
 		System.out.println("[test log] [" + System.currentTimeMillis() + "] initialisation()");
 		String requestURL = "http://localhost:8090/reset";
 		OkHttpClient client = new OkHttpClient().newBuilder().build();
@@ -72,8 +72,8 @@ public class Wrapper {
 	 * 
 	 *         - consecutive_errors equals to @param consecutive_errors
 	 */
-	public boolean isValid(circuit_breaker circuit_breaker, Integer time, Integer test_request_to_go,
-			Integer timestamp_cb_trips, Integer consecutive_errors) {
+	public boolean isValid(CircuitBreaker circuit_breaker, Integer consecutive_errors, Integer test_request_to_go,
+			Integer time, Integer timestamp_cb_trips) {
 		System.out.println(
 				"[test log] [" + System.currentTimeMillis() + "] isValid_circuit_breaker(" + circuit_breaker + ")");
 		String requestURL = "http://localhost:8090/status";
@@ -90,9 +90,9 @@ public class Wrapper {
 				// when initialized
 				return true;
 			} else {
-				if (circuit_breaker.equals(uy.edu.fing.svergara.circuit_breaker.CLOSED)) {
+				if (circuit_breaker.equals(CircuitBreaker.CLOSED)) {
 					return !status.isOpen();
-				} else if (circuit_breaker.equals(uy.edu.fing.svergara.circuit_breaker.OPEN)) {
+				} else if (circuit_breaker.equals(CircuitBreaker.OPEN)) {
 					return status.isOpen();
 				} else {
 					// TODO how to validate HALF-OPEN state
