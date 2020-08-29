@@ -43,4 +43,11 @@ public class JunitTestCase {
 	public void setSteps(List<JunitStep> steps) {
 		this.steps = steps;
 	}
+
+	@Override
+	public String toString() {
+		return "JunitTestCase [id=" + getId() + ", initializationVariables=" + getInitializationVariables() + ", steps="
+				+ getSteps() + "]";
+	}
+
 }

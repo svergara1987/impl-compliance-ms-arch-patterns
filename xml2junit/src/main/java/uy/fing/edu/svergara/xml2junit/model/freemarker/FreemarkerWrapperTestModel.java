@@ -99,4 +99,10 @@ public class FreemarkerWrapperTestModel {
 		this.testCases = testCases;
 	}
 
+	@Override
+	public String toString() {
+		return "FreemarkerWrapperTestModel [isValidParameters=" + getIsValidParameters() + ", newTypes=" + getNewTypes()
+				+ ", packageName=" + getPackageName() + ", testCases=" + getTestCases() + "]";
+	}
+
 }

@@ -31,4 +31,10 @@ public class Type {
 	public void setValues(List<String> values) {
 		this.values = values;
 	}
+
+	@Override
+	public String toString() {
+		return "Type [name=" + getName() + ", supertype=" + getSupertype() + ", values=" + getValues() + "]";
+	}
+
 }

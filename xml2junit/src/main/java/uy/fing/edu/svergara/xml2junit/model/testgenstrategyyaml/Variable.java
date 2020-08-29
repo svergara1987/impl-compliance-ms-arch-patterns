@@ -32,4 +32,9 @@ public class Variable {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	@Override
+	public String toString() {
+		return "Variable [ignore=" + getIgnore() + ", name=" + getName() + ", type=" + getType() + "]";
+	}
 }

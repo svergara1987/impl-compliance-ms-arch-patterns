@@ -27,4 +27,9 @@ public class Parameter {
 		return this;
 	}
 
+	@Override
+	public String toString() {
+		return "Parameter [name=" + getName() + ", type=" + getType() + "]";
+	}
+
 }

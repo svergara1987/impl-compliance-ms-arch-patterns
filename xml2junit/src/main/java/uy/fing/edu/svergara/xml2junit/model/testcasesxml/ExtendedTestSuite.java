@@ -26,4 +26,9 @@ public class ExtendedTestSuite {
 		this.testCases = testCases;
 	}
 
+	@Override
+	public String toString() {
+		return "ExtendedTestSuite [testCases=" + getTestCases() + "]";
+	}
+
 }

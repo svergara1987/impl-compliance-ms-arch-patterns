@@ -62,4 +62,9 @@ public class Step {
 		this.values = values;
 	}
 
+	@Override
+	public String toString() {
+		return "Step [modifieds=" + getModifieds() + ", name=" + getName() + ", values=" + getValues() + "]";
+	}
+
 }

@@ -216,6 +216,7 @@ public class XML2Junit {
 		JAXBContext jaxbContext = JAXBContext.newInstance(ExtendedTestSuite.class);
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		ExtendedTestSuite extendedTestSuite = (ExtendedTestSuite) jaxbUnmarshaller.unmarshal(file);
+		logger.finest(extendedTestSuite.toString());
 		logger.finest("ok");
 		return extendedTestSuite;
 	}
@@ -238,6 +239,7 @@ public class XML2Junit {
 		FileInputStream fileInputStream = new FileInputStream(
 				new File(yamlTestGenStrategyPath.toAbsolutePath().toString()));
 		TestGenStrategy testGenStrategy = yaml.load(fileInputStream);
+		logger.finest(testGenStrategy.toString());
 		logger.finest("ok");
 		return testGenStrategy;
 	}

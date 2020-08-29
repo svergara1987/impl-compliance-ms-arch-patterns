@@ -38,8 +38,8 @@ public class FreemarkerEnumModel {
 
 	@Override
 	public String toString() {
-		return "FreemarkerEnumModel [enumName=" + enumName + ", enumValues=" + enumValues + ", packageName="
-				+ packageName + "]";
+		return "FreemarkerEnumModel [enumName=" + getEnumName() + ", enumValues=" + getEnumValues() + ", packageName="
+				+ getPackageName() + "]";
 	}
 
 }

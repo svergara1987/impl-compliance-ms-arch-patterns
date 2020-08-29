@@ -26,4 +26,9 @@ public class FreemarkerWrapperModel {
 	public void setPackageName(String packageName) {
 		this.packageName = packageName;
 	}
+
+	@Override
+	public String toString() {
+		return "FreemarkerWrapperModel [operations=" + getOperations() + ", packageName=" + getPackageName() + "]";
+	}
 }

@@ -13,6 +13,14 @@ public class TestGenStrategy {
 	private List<Type> types;
 	private List<Variable> variables;
 
+	public Map<String, Variable> buildVariablesMap() {
+		Map<String, Variable> variableMap = new HashMap<>();
+		for (Variable aVariable : getVariables()) {
+			variableMap.put(aVariable.getName(), aVariable);
+		}
+		return variableMap;
+	}
+
 	public String getArtifactId() {
 		return artifactId;
 	}
@@ -59,11 +67,10 @@ public class TestGenStrategy {
 		this.variables = variables;
 	}
 
-	public Map<String, Variable> buildVariablesMap() {
-		Map<String, Variable> variableMap = new HashMap<>();
-		for (Variable aVariable : getVariables()) {
-			variableMap.put(aVariable.getName(), aVariable);
-		}
-		return variableMap;
+	@Override
+	public String toString() {
+		return "TestGenStrategy [artifactId=" + getArtifactId() + ", groupId=" + getGroupId() + ", projectLocation="
+				+ getProjectLocation() + ", types=" + getTypes() + ", variables=" + getVariables() + "]";
 	}
+
 }

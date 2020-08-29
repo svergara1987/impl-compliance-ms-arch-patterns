@@ -66,4 +66,9 @@ public class Value {
 		this.value = value;
 	}
 
+	@Override
+	public String toString() {
+		return "Value [name=" + getName() + ", type=" + getType() + ", value=" + getValue() + "]";
+	}
+
 }

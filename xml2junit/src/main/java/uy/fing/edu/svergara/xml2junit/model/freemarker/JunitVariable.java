@@ -36,4 +36,9 @@ public class JunitVariable {
 		return this;
 	}
 
+	@Override
+	public String toString() {
+		return "JunitVariable [name=" + getName() + ", type=" + getType() + ", value=" + getValue() + "]";
+	}
+
 }

@@ -52,4 +52,10 @@ public class Operation {
 		return this;
 	}
 
+	@Override
+	public String toString() {
+		return "Operation [name=" + getName() + ", parameters=" + getParameters() + ", parametersStrRep="
+				+ getParametersStrRep() + ", returnType=" + getReturnType() + "]";
+	}
+
 }

@@ -59,4 +59,10 @@ public class JunitStep {
 		this.pre = pre;
 	}
 
+	@Override
+	public String toString() {
+		return "JunitStep [id=" + getId() + ", methodName=" + getMethodName() + ", methodParameters="
+				+ getMethodParameters() + ", post=" + getPost() + ", pre=" + getPre() + "]";
+	}
+
 }

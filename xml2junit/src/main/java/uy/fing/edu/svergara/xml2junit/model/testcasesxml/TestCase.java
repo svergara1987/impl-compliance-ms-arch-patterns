@@ -37,4 +37,9 @@ public class TestCase {
 		this.steps = steps;
 	}
 
+	@Override
+	public String toString() {
+		return "TestCase [initialisation=" + getInitialisation() + ", steps=" + getSteps() + "]";
+	}
+
 }
