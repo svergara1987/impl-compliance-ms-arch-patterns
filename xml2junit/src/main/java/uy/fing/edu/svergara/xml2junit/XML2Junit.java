@@ -246,9 +246,11 @@ public class XML2Junit {
 
 	private Configuration setupFreemarker() throws IOException {
 		Configuration configuration = new Configuration(Configuration.VERSION_2_3_30);
-		String directoryForTemplateLoading = "resources/freemarker/templates";
+		String directoryForTemplateLoading = "templates";
 		logger.finest("directoryForTemplateLoading = \"" + directoryForTemplateLoading + "\"");
-		configuration.setDirectoryForTemplateLoading(new File(directoryForTemplateLoading));
+		configuration.setClassForTemplateLoading(this.getClass(), directoryForTemplateLoading);
+		// the following line was substituted by the previous
+		// configuration.setDirectoryForTemplateLoading(new File(directoryForTemplateLoading));
 		configuration.setDefaultEncoding("UTF-8");
 		configuration.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
 		configuration.setLogTemplateExceptions(false);
