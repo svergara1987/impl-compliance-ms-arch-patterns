@@ -4,7 +4,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Logger;
 
+import uy.fing.edu.svergara.xml2junit.XML2Junit;
 import uy.fing.edu.svergara.xml2junit.model.testcasesxml.ExtendedTestSuite;
 import uy.fing.edu.svergara.xml2junit.model.testcasesxml.Modified;
 import uy.fing.edu.svergara.xml2junit.model.testcasesxml.Step;
@@ -19,6 +21,7 @@ public class FreeMarkerModelBuilderFactory {
 	private static final String INITALISATION = "initialisation";
 	private static final FreeMarkerModelBuilderFactory INSTANCE = new FreeMarkerModelBuilderFactory();
 	private static final String IS_VALID_OPERATION_NAME = "isValid";
+	private final static Logger logger = Logger.getLogger(XML2Junit.class.getSimpleName());
 	private static final String VARIABLE = "variable";
 
 	public static FreeMarkerModelBuilderFactory instance() {
@@ -30,6 +33,7 @@ public class FreeMarkerModelBuilderFactory {
 		freemarkerModel.setPackageName(testGenStrategy.getGroupId());
 		freemarkerModel.setEnumName(aType.getName());
 		freemarkerModel.setEnumValues(aType.getValues());
+		logger.finest(freemarkerModel.toString());
 		return freemarkerModel;
 	}
 
@@ -53,15 +57,6 @@ public class FreeMarkerModelBuilderFactory {
 			}
 		}
 		return freemarkerModel;
-	}
-
-	private Operation findIsValidOperation(FreemarkerWrapperModel freemarkerWrapperModel) {
-		for (Operation operation : freemarkerWrapperModel.getOperations()) {
-			if (IS_VALID_OPERATION_NAME.equals(operation.getName())) {
-				return operation;
-			}
-		}
-		throw new RuntimeException(IS_VALID_OPERATION_NAME + " operation does not exists");
 	}
 
 	public FreemarkerWrapperTestModel buildFreemarkerWrapperTestDataModel(TestGenStrategy testGenStrategy,
@@ -152,5 +147,14 @@ public class FreeMarkerModelBuilderFactory {
 			}
 		}
 		return anOperation;
+	}
+
+	private Operation findIsValidOperation(FreemarkerWrapperModel freemarkerWrapperModel) {
+		for (Operation operation : freemarkerWrapperModel.getOperations()) {
+			if (IS_VALID_OPERATION_NAME.equals(operation.getName())) {
+				return operation;
+			}
+		}
+		throw new RuntimeException(IS_VALID_OPERATION_NAME + " operation does not exists");
 	}
 }

@@ -36,4 +36,10 @@ public class FreemarkerEnumModel {
 		this.packageName = packageName;
 	}
 
+	@Override
+	public String toString() {
+		return "FreemarkerEnumModel [enumName=" + enumName + ", enumValues=" + enumValues + ", packageName="
+				+ packageName + "]";
+	}
+
 }
