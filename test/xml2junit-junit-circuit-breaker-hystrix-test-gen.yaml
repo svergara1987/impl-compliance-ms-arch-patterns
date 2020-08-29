@@ -1,7 +1,7 @@
 ---
-projectLocation: /Users/svergara/Desktop
+projectLocation: /Users/svergara/Desktop/tesis-maestria-eventb-compliance/test
 groupId: uy.edu.fing.svergara
-artifactId: junit-circuit-breaker-generated
+artifactId: junit-circuit-breaker-hystrix-generated
 types:
   - name: CircuitBreaker
     supertype: enum

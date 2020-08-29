@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>uy.edu.fing.svergara</groupId>
-	<artifactId>junit-circuit-breaker</artifactId>
+	<artifactId>junit-circuit-breaker-hystrix</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>junit-circuit-breaker</name>
+	<name>junit-circuit-breaker-hystrix</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
