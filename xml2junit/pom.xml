@@ -5,9 +5,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>uy.fing.edu.svergara</groupId>
-	<artifactId>velocity</artifactId>
+	<artifactId>xml2junit</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>velocity</name>
+	<name>xml2junit</name>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
