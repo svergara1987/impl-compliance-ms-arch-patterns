@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.ConsoleHandler;
@@ -38,6 +39,7 @@ import uy.fing.edu.svergara.xml2junit.model.testgenstrategyyaml.Variable;
 public class XML2Junit {
 
 	private final static Logger logger = Logger.getLogger(XML2Junit.class.getSimpleName());
+	private static boolean SIMULATE;
 
 	public static void main(String[] args) {
 		ArgumentParser parser = ArgumentParsers.newFor(XML2Junit.class.getSimpleName()).build().defaultHelp(true)
@@ -47,9 +49,12 @@ public class XML2Junit {
 		parser.addArgument("-t", "--testcases").help("test cases xml file").required(true);
 		parser.addArgument("-v", "--verbose").help("enables verbose mode").action(Arguments.storeConst())
 				.setConst(true);
+		parser.addArgument("-z", "--simulate").help("simulates execution").action(Arguments.storeConst())
+				.setConst(true);
 		try {
 			Namespace ns = parser.parseArgs(args);
 			setUpLogger(ns.getString("verbose"));
+			SIMULATE = ns.getBoolean("simulate");
 			new XML2Junit().execute(ns.getString("strategy"), ns.getString("testcases"));
 		} catch (ArgumentParserException e) {
 			e.printStackTrace();
@@ -147,7 +152,9 @@ public class XML2Junit {
 				+ xmlTestCasesPath + "\"");
 		TestGenStrategy testGenStrategy = parseYamlTestGenStrategyPath(yamlTestGenStrategyPath);
 		ExtendedTestSuite extendedTestSuite = parseTestCasesXml(xmlTestCasesPath);
-		createProjectStructure(testGenStrategy);
+		if (!SIMULATE) {
+			createProjectStructure(testGenStrategy);
+		}
 		generateContents(testGenStrategy, extendedTestSuite);
 	}
 
@@ -166,8 +173,13 @@ public class XML2Junit {
 		logger.finest("wrapperPath = \"" + wrapperPath.toString() + "\"");
 		FreemarkerWrapperModel freemarkerWrapperModel = FreeMarkerModelBuilderFactory.instance()
 				.buildFreemarkerWrapperDataModel(testGenStrategy, extendedTestSuite);
-		configuration.getTemplate("Wrapper.ftl").process(freemarkerWrapperModel,
-				new FileWriter(wrapperPath.toString()));
+		if (SIMULATE) {
+			configuration.getTemplate("Wrapper.ftl").process(freemarkerWrapperModel,
+					new OutputStreamWriter(System.out));
+		} else {
+			configuration.getTemplate("Wrapper.ftl").process(freemarkerWrapperModel,
+					new FileWriter(wrapperPath.toString()));
+		}
 		logger.finest("Wrapper.java generated ok");
 		logger.finest("generating types defined in testGenStrategy file");
 		StringBuilder typePath = null;
@@ -184,9 +196,14 @@ public class XML2Junit {
 				typePath.append(testGenStrategy.getGroupId().replaceAll("[.]", File.separator)).append(File.separator);
 				typePath.append(aType.getName()).append(".java");
 				logger.finest(aType.getName() + " path = \"" + typePath.toString() + "\"");
-				configuration.getTemplate("Enum.ftl").process(
-						FreeMarkerModelBuilderFactory.instance().buildFreemarkerEnumrDataModel(testGenStrategy, aType),
-						new FileWriter(typePath.toString()));
+				if (SIMULATE) {
+					configuration.getTemplate("Enum.ftl").process(FreeMarkerModelBuilderFactory.instance()
+							.buildFreemarkerEnumrDataModel(testGenStrategy, aType), new OutputStreamWriter(System.out));
+				} else {
+					configuration.getTemplate("Enum.ftl").process(FreeMarkerModelBuilderFactory.instance()
+							.buildFreemarkerEnumrDataModel(testGenStrategy, aType),
+							new FileWriter(typePath.toString()));
+				}
 				logger.finest(aType.getName() + ".java generated ok");
 			} else {
 				logger.severe("supertype attribute is not valid");
@@ -203,9 +220,19 @@ public class XML2Junit {
 		wrapperTestPath.append(testGenStrategy.getGroupId().replaceAll("[.]", File.separator)).append(File.separator);
 		wrapperTestPath.append("WrapperTest.java");
 		logger.finest("wrapperTestPath = \"" + wrapperTestPath.toString() + "\"");
-		configuration.getTemplate("WrapperTest.ftl").process(FreeMarkerModelBuilderFactory.instance()
-				.buildFreemarkerWrapperTestDataModel(testGenStrategy, extendedTestSuite, freemarkerWrapperModel),
-				new FileWriter(wrapperTestPath.toString()));
+		if (SIMULATE) {
+			configuration.getTemplate("WrapperTest.ftl")
+					.process(
+							FreeMarkerModelBuilderFactory.instance().buildFreemarkerWrapperTestDataModel(
+									testGenStrategy, extendedTestSuite, freemarkerWrapperModel),
+							new OutputStreamWriter(System.out));
+		} else {
+			configuration.getTemplate("WrapperTest.ftl")
+					.process(
+							FreeMarkerModelBuilderFactory.instance().buildFreemarkerWrapperTestDataModel(
+									testGenStrategy, extendedTestSuite, freemarkerWrapperModel),
+							new FileWriter(wrapperTestPath.toString()));
+		}
 		logger.finest("WrapperTest.java generated ok");
 		logger.finest("all code was generated ok");
 	}
@@ -250,7 +277,8 @@ public class XML2Junit {
 		logger.finest("directoryForTemplateLoading = \"" + directoryForTemplateLoading + "\"");
 		configuration.setClassForTemplateLoading(this.getClass(), directoryForTemplateLoading);
 		// the following line was substituted by the previous
-		// configuration.setDirectoryForTemplateLoading(new File(directoryForTemplateLoading));
+		// configuration.setDirectoryForTemplateLoading(new
+		// File(directoryForTemplateLoading));
 		configuration.setDefaultEncoding("UTF-8");
 		configuration.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
 		configuration.setLogTemplateExceptions(false);

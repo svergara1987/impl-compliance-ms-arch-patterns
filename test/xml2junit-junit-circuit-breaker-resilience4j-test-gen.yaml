@@ -1,0 +1,41 @@
+---
+projectLocation: /Users/svergara/Desktop/tesis-maestria-eventb-compliance/test
+groupId: uy.edu.fing.svergara
+artifactId: junit-circuit-breaker-resilience4j
+types:
+  - name: CircuitBreaker
+    supertype: enum
+    values: [CLOSED, OPEN, HALF_OPEN]
+variables:
+  - name: THRESHOLD
+    type: Integer
+  - name: AMOUNT_TEST_REQUESTS
+    type: Integer
+  - name: TIMEOUT_PERIOD
+    type: Integer
+  - name: test_request_to_go
+    type: Integer
+  - name: timestamp_cb_trips
+    type: Integer
+  - name: consecutive_errors
+    type: Integer
+  - name: circuit_breaker
+    type: CircuitBreaker
+  - name: microservice_response
+    type: Boolean
+  - name: new_circuit_breaker
+    type: CircuitBreaker
+    ignore: true
+  - name: new_consecutive_errors
+    type: Integer
+    ignore: true
+  - name: new_test_request_to_go
+    type: Integer
+    ignore: true
+  - name: new_timestamp_cb_trips
+    type: Integer
+    ignore: true
+  - name: consecutive_errors
+    type: Integer
+  - name: time
+    type: Integer

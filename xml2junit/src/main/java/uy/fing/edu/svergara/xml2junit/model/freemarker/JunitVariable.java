@@ -16,7 +16,7 @@ public class JunitVariable {
 
 	public String getValue() {
 		if (Boolean.class.getSimpleName().equalsIgnoreCase(getType())) {
-			value = String.valueOf(Boolean.getBoolean(value));
+			value = String.valueOf(Boolean.parseBoolean(value));
 		}
 		return value;
 	}

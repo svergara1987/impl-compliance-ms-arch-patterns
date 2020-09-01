@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
+import io.github.resilience4j.circuitbreaker.CircuitBreaker.State;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig.SlidingWindowType;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
@@ -42,7 +43,7 @@ public class CircuitBreakerResilience4jApplication {
 	private static final float FAILURE_RATE_THRESHOLD = 100;
 	private static final int MINIMUM_NUMBER_OF_CALLS_TO_EVALUATE_TRIPPING = 3;
 	private static final int SLIDING_WINDOW_SIZE = 3;
-	private static final long TIMEOUT_PERIOD_IN_MILLISECONDS = 20000;
+	private static final long TIMEOUT_PERIOD_IN_MILLISECONDS = 2000;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CircuitBreakerResilience4jApplication.class, args);
@@ -50,8 +51,6 @@ public class CircuitBreakerResilience4jApplication {
 
 	@Autowired
 	CircuitBreakerFactory<?, ?> circuitBreakerFactory;
-//	@Autowired
-//	CircuitBreakerRegistry registry;
 	@Autowired
 	PeopleService peopleService;
 	@Autowired
@@ -86,6 +85,7 @@ public class CircuitBreakerResilience4jApplication {
 	}
 
 	private ResponseEntity<Object> fallbackList(Integer milliseconds, Boolean fail) {
+		System.out.println("fallback - circuit breaker state is " + circuitBreakerState(CIRCUIT_BREAKER_LIST_PEOPLE));
 		return new ResponseEntity<>("fallback list", HttpStatus.OK);
 	}
 
@@ -97,6 +97,7 @@ public class CircuitBreakerResilience4jApplication {
 	@RequestMapping(method = RequestMethod.GET, value = "/people")
 	public ResponseEntity<Object> list(@RequestParam(value = "delayed", required = false) Integer milliseconds,
 			@RequestParam(value = "fail", required = false) Boolean fail) {
+		System.out.println("list - fail " + fail);
 		return circuitBreakerFactory.create(CIRCUIT_BREAKER_LIST_PEOPLE)
 				.run(peopleService.listSuppplier(milliseconds, fail), t -> fallbackList(milliseconds, fail));
 	}
@@ -116,6 +117,7 @@ public class CircuitBreakerResilience4jApplication {
 					.invoke(circuitBreakerFactory);
 			CircuitBreaker circuitBreaker = circuitBreakerRegistry.circuitBreaker(CIRCUIT_BREAKER_LIST_PEOPLE);
 			circuitBreaker.reset();
+			System.out.println("reset - circuit breaker state is " + circuitBreakerState(CIRCUIT_BREAKER_LIST_PEOPLE));
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {
@@ -130,14 +132,19 @@ public class CircuitBreakerResilience4jApplication {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/status")
 	public ResponseEntity<Object> status() {
+		State state = circuitBreakerState(CIRCUIT_BREAKER_LIST_PEOPLE);
+		System.out.println("status - circuit breaker state is " + state);
+		return new ResponseEntity<>(state, HttpStatus.OK);
+	}
+
+	private State circuitBreakerState(String circuitBreaker) {
 		try {
 			Method getCircuitBreakerRegistryMethod = circuitBreakerFactory.getClass()
 					.getDeclaredMethod("getCircuitBreakerRegistry");
 			getCircuitBreakerRegistryMethod.setAccessible(true);
 			CircuitBreakerRegistry circuitBreakerRegistry = (CircuitBreakerRegistry) getCircuitBreakerRegistryMethod
 					.invoke(circuitBreakerFactory);
-			CircuitBreaker circuitBreaker = circuitBreakerRegistry.circuitBreaker(CIRCUIT_BREAKER_LIST_PEOPLE);
-			return new ResponseEntity<>(circuitBreaker.getState(), HttpStatus.OK);
+			return circuitBreakerRegistry.circuitBreaker(circuitBreaker).getState();
 		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {
 			throw new ErrorGettingStatusException(CIRCUIT_BREAKER_LIST_PEOPLE, e);
