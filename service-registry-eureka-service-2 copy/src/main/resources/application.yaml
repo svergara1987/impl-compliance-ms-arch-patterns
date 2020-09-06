@@ -1,0 +1,16 @@
+spring:
+    application:
+        name: service-registry-eureka-client-people
+        
+server:
+  port: 8093
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8092/eureka/
+    healthcheck:
+      enabled: true
+#  instance:
+#    statusPageUrlPath: ${server.servletPath}/info
+#    healthCheckUrlPath: ${server.servletPath}/health
