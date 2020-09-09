@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1578326830750" org.eventb.texttools.text_representation="context c0_circuit_breaker&#10;&#10;sets CIRCUIT_BREAKER_STATE&#10;&#10;constants THRESHOLD OPEN CLOSED TIMEOUT_PERIOD HALF_OPEN AMOUNT_TEST_REQUESTS&#10;&#10;axioms&#10;  @ax1 THRESHOLD ∈ ℕ1&#10;  @ax2 TIMEOUT_PERIOD ∈ ℕ1&#10;  @ax3 partition(CIRCUIT_BREAKER_STATE,{OPEN},{CLOSED},{HALF_OPEN})&#10;  @ax4 AMOUNT_TEST_REQUESTS ∈ ℕ1&#10;&#10;  @init1 THRESHOLD = 3&#10;  @init2 TIMEOUT_PERIOD = 2&#10;  @init3 AMOUNT_TEST_REQUESTS = 3&#10;end&#10;" version="3">
+    <org.eventb.core.carrierSet name="__-BzkPjwEemEM56lwO95gA" org.eventb.core.generated="false" org.eventb.core.identifier="CIRCUIT_BREAKER_STATE"/>
+    <org.eventb.core.constant name="__-BzkfjwEemEM56lwO95gA" org.eventb.core.generated="false" org.eventb.core.identifier="THRESHOLD"/>
+    <org.eventb.core.constant name="__-BzkvjwEemEM56lwO95gA" org.eventb.core.generated="false" org.eventb.core.identifier="OPEN"/>
+    <org.eventb.core.constant name="__-Bzk_jwEemEM56lwO95gA" org.eventb.core.generated="false" org.eventb.core.identifier="CLOSED"/>
+    <org.eventb.core.constant name="__-BzlPjwEemEM56lwO95gA" org.eventb.core.generated="false" org.eventb.core.identifier="TIMEOUT_PERIOD"/>
+    <org.eventb.core.constant name="__-BzlfjwEemEM56lwO95gA" org.eventb.core.generated="false" org.eventb.core.identifier="HALF_OPEN"/>
+    <org.eventb.core.constant name="__-BzlvjwEemEM56lwO95gA" org.eventb.core.generated="false" org.eventb.core.identifier="AMOUNT_TEST_REQUESTS"/>
+    <org.eventb.core.axiom name="__-CaoPjwEemEM56lwO95gA" org.eventb.core.generated="false" org.eventb.core.label="ax1" org.eventb.core.predicate="THRESHOLD ∈ ℕ1"/>
+    <org.eventb.core.axiom name="__-CaofjwEemEM56lwO95gA" org.eventb.core.generated="false" org.eventb.core.label="ax2" org.eventb.core.predicate="TIMEOUT_PERIOD ∈ ℕ1"/>
+    <org.eventb.core.axiom name="__-CaovjwEemEM56lwO95gA" org.eventb.core.generated="false" org.eventb.core.label="ax3" org.eventb.core.predicate="partition(CIRCUIT_BREAKER_STATE,{OPEN},{CLOSED},{HALF_OPEN})"/>
+    <org.eventb.core.axiom name="__-Cao_jwEemEM56lwO95gA" org.eventb.core.generated="false" org.eventb.core.label="ax4" org.eventb.core.predicate="AMOUNT_TEST_REQUESTS ∈ ℕ1"/>
+    <org.eventb.core.axiom name="_jluwAA7jEeqFDJ3F0TL2iQ" org.eventb.core.generated="false" org.eventb.core.label="init1" org.eventb.core.predicate="THRESHOLD = 3"/>
+    <org.eventb.core.axiom name="_jlv-IA7jEeqFDJ3F0TL2iQ" org.eventb.core.generated="false" org.eventb.core.label="init2" org.eventb.core.predicate="TIMEOUT_PERIOD = 2"/>
+    <org.eventb.core.axiom name="_jlwlMA7jEeqFDJ3F0TL2iQ" org.eventb.core.generated="false" org.eventb.core.label="init3" org.eventb.core.predicate="AMOUNT_TEST_REQUESTS = 3"/>
+</org.eventb.core.contextFile>

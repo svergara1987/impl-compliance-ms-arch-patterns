@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="CIRCUIT_BREAKER_STATE" org.eventb.core.type="ℙ(CIRCUIT_BREAKER_STATE)"/>
+<org.eventb.core.poIdentifier name="AMOUNT_TEST_REQUESTS" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="CLOSED" org.eventb.core.type="CIRCUIT_BREAKER_STATE"/>
+<org.eventb.core.poIdentifier name="HALF_OPEN" org.eventb.core.type="CIRCUIT_BREAKER_STATE"/>
+<org.eventb.core.poIdentifier name="OPEN" org.eventb.core.type="CIRCUIT_BREAKER_STATE"/>
+<org.eventb.core.poIdentifier name="THRESHOLD" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="TIMEOUT_PERIOD" org.eventb.core.type="ℤ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/circuit-breaker-pattern/c0_circuit_breaker.bpo|org.eventb.core.poFile#c0_circuit_breaker|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="THRESHOLD∈ℕ1" org.eventb.core.source="/circuit-breaker-pattern/c0_circuit_breaker.buc|org.eventb.core.contextFile#c0_circuit_breaker|org.eventb.core.axiom#__-CaoPjwEemEM56lwO95gA"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="TIMEOUT_PERIOD∈ℕ1" org.eventb.core.source="/circuit-breaker-pattern/c0_circuit_breaker.buc|org.eventb.core.contextFile#c0_circuit_breaker|org.eventb.core.axiom#__-CaofjwEemEM56lwO95gA"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="partition(CIRCUIT_BREAKER_STATE,{OPEN},{CLOSED},{HALF_OPEN})" org.eventb.core.source="/circuit-breaker-pattern/c0_circuit_breaker.buc|org.eventb.core.contextFile#c0_circuit_breaker|org.eventb.core.axiom#__-CaovjwEemEM56lwO95gA"/>
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="AMOUNT_TEST_REQUESTS∈ℕ1" org.eventb.core.source="/circuit-breaker-pattern/c0_circuit_breaker.buc|org.eventb.core.contextFile#c0_circuit_breaker|org.eventb.core.axiom#__-Cao_jwEemEM56lwO95gA"/>
+<org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="THRESHOLD=3" org.eventb.core.source="/circuit-breaker-pattern/c0_circuit_breaker.buc|org.eventb.core.contextFile#c0_circuit_breaker|org.eventb.core.axiom#_jluwAA7jEeqFDJ3F0TL2iQ"/>
+<org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="TIMEOUT_PERIOD=2" org.eventb.core.source="/circuit-breaker-pattern/c0_circuit_breaker.buc|org.eventb.core.contextFile#c0_circuit_breaker|org.eventb.core.axiom#_jlv-IA7jEeqFDJ3F0TL2iQ"/>
+<org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="AMOUNT_TEST_REQUESTS=3" org.eventb.core.source="/circuit-breaker-pattern/c0_circuit_breaker.buc|org.eventb.core.contextFile#c0_circuit_breaker|org.eventb.core.axiom#_jlwlMA7jEeqFDJ3F0TL2iQ"/>
+</org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

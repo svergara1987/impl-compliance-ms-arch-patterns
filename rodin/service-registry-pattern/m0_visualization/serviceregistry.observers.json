@@ -1,0 +1,54 @@
+{
+    "observers": [
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "S"
+                ],
+                "selector": "#set_all_services",
+                "trigger": "origin.text(\"Set of all posible services: \" + values[0])"
+            }
+        },
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "E"
+                ],
+                "selector": "#set_all_endpoints",
+                "trigger": "origin.text(\"Set of all possible endpoints: \" + values[0])"
+            }
+        },
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "endpoints"
+                ],
+                "selector": "tbody",
+                "trigger": "var endpoints = values[0].substring(1, values[0].length - 1);\nvar regex = /(\\(.*?\\))/g;\nvar m, tmp = [];\nwhile ((m = regex.exec(endpoints)) !== null) { tmp.push(m[0]); }\nendpoints = tmp.slice();\nvar innerHTML = \"\";\nregex = /\\w+/g;\nfor (var j = 0; j < endpoints.length; j++) {\n    tmp = [];\n    while ((m = regex.exec(endpoints[j])) !== null) { tmp.push(m[0]); }\n    if (tmp.length > 1) {\n        for (var i = 1; i < tmp.length; i++) {\n            innerHTML += \"<tr><td>\" + tmp[0] + \"</td><td>\" + tmp[i] + \"</td></tr>\";\n        }\n    } else {\n        innerHTML += \"<tr><td>\" + tmp[0] + \"</td><td></td></tr>\";\n    }\n}\norigin.html(innerHTML);"
+            }
+        },
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "services"
+                ],
+                "selector": "#thumbcr",
+                "trigger": "if (values[0].length > 2){\n  origin.attr(\"visibility\",\"visible\");\n} else {\n  origin.attr(\"visibility\",\"hidden\");\n}"
+            }
+        },
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "last_endpoint_query_result"
+                ],
+                "selector": "#res_endpoint",
+                "trigger": "origin.text(values[0]);"
+            }
+        }
+    ]
+}

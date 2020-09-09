@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1578324179382" org.eventb.texttools.text_representation="context c0_service_registry&#10;&#10;sets S // set of all possible services&#10;     E // set of all possible endpoints to assign to the different services&#10;&#10;&#10;constants S1 S2 S3 S4 S5 E1 E2 E3 E4 E5 E6&#10;&#10;axioms&#10;  @ax1 partition(S,{S1},{S2},{S3},{S4},{S5})&#10;  @ax2 partition(E,{E1},{E2},{E3},{E4},{E5},{E6})&#10;end&#10;" version="3">
+    <org.eventb.core.carrierSet name="_azMuYDCYEeqMhoZral7PXw" org.eventb.core.comment="set of all possible services" org.eventb.core.generated="false" org.eventb.core.identifier="S"/>
+    <org.eventb.core.carrierSet name="_azMuYTCYEeqMhoZral7PXw" org.eventb.core.comment="set of all possible endpoints to assign to the different services" org.eventb.core.generated="false" org.eventb.core.identifier="E"/>
+    <org.eventb.core.constant name="_azMuYjCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="S1"/>
+    <org.eventb.core.constant name="_azNVcDCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="S2"/>
+    <org.eventb.core.constant name="_azNVcTCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="S3"/>
+    <org.eventb.core.constant name="_azNVcjCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="S4"/>
+    <org.eventb.core.constant name="_azNVczCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="S5"/>
+    <org.eventb.core.constant name="_azNVdDCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="E1"/>
+    <org.eventb.core.constant name="_azNVdTCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="E2"/>
+    <org.eventb.core.constant name="_azN8gDCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="E3"/>
+    <org.eventb.core.constant name="_azN8gTCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="E4"/>
+    <org.eventb.core.constant name="_azN8gjCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="E5"/>
+    <org.eventb.core.constant name="_azN8gzCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="E6"/>
+    <org.eventb.core.axiom name="_azN8hDCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="ax1" org.eventb.core.predicate="partition(S,{S1},{S2},{S3},{S4},{S5})"/>
+    <org.eventb.core.axiom name="_azOjkDCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="ax2" org.eventb.core.predicate="partition(E,{E1},{E2},{E3},{E4},{E5},{E6})"/>
+</org.eventb.core.contextFile>

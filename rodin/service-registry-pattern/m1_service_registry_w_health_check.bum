@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1599617819344" org.eventb.texttools.text_representation="machine m1_service_registry_w_health_check refines m0_service_registry  sees c1_service_registry_w_health_check&#10;&#10;variables services // represents the set of microservices in the registry&#10;          endpoints // represents the endpoints of the microservices in the resgistry&#10;          health_apis // represents the api for health checking a service endpoint&#10;          last_endpoint_query_result // represents the last response obtained from querying a service's endpoints&#10;          last_health_query_result // represents the last response obtained from querying an endpoint's health apis&#10;&#10;&#10;invariants&#10;  @inv1 services ⊆ S&#10;  @inv2 endpoints ∈ services → ℙ(E)&#10;  @inv4 last_endpoint_query_result ∈ ℙ(E)&#10;  @inv3 health_apis ∈ union(ran(endpoints)) → HCA&#10;  @inv5 last_health_query_result ∈ ℙ(HCA)&#10;&#10;events&#10;  event INITIALISATION&#10;    then&#10;      @init1 services ≔ ∅&#10;      @init2 endpoints ≔ ∅&#10;      @init3 last_endpoint_query_result ≔ ∅&#10;      @init4 health_apis ≔ ∅&#10;      @init5 last_health_query_result ≔ ∅&#10;  end&#10;&#10;  event register extends register&#10;  end&#10;&#10;  event unregister extends unregister&#10;    then&#10;      @act3 health_apis ≔ endpoints(a_service) ⩤ health_apis // domain substraction&#10;  end&#10;&#10;  event add_endpoint extends add_endpoint&#10;    any a_health_check_api&#10;    where&#10;      @grd3 a_health_check_api ∈ HCA&#10;    then&#10;      @act2 health_apis(an_endpoint) ≔ a_health_check_api&#10;  end&#10;&#10;  event remove_endpoint extends remove_endpoint&#10;    then&#10;      @act2 health_apis ≔ { an_endpoint } ⩤ health_apis // domain substraction&#10;  end&#10;&#10;  event query_endpoints extends query_endpoints&#10;  end&#10;&#10;  event query_health_apis&#10;    any an_endpoint result&#10;    where&#10;      @grd1 an_endpoint ∈ E&#10;      @grd2 result ⊆ HCA&#10;      @grd3 an_endpoint ∈ union(ran(endpoints)) ⇒ result = { health_apis(an_endpoint) }&#10;      @grd4 an_endpoint ∉ union(ran(endpoints)) ⇒ result = ∅&#10;    then&#10;      @act1 last_health_query_result ≔ result&#10;  end&#10;end&#10;" version="5">
+<org.eventb.core.refinesMachine name="_RsGnADCYEeqMhoZral7PXw" org.eventb.core.target="m0_service_registry"/>
+<org.eventb.core.seesContext name="_ocQlEDCYEeqMhoZral7PXw" org.eventb.core.target="c1_service_registry_w_health_check"/>
+<org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="_EhY5MDCYEeqMhoZral7PXw" org.eventb.core.assignment="services ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="init1"/>
+<org.eventb.core.action name="_EhY5MTCYEeqMhoZral7PXw" org.eventb.core.assignment="endpoints ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="init2"/>
+<org.eventb.core.action name="_EhY5MjCYEeqMhoZral7PXw" org.eventb.core.assignment="last_endpoint_query_result ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="init3"/>
+<org.eventb.core.action name="_EhZgQDCYEeqMhoZral7PXw" org.eventb.core.assignment="health_apis ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="init4"/>
+<org.eventb.core.action name="_EhZgQTCYEeqMhoZral7PXw" org.eventb.core.assignment="last_health_query_result ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="init5"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="_EhZgQjCYEeqMhoZral7PXw" org.eventb.core.comment="represents the set of microservices in the registry" org.eventb.core.generated="false" org.eventb.core.identifier="services"/>
+<org.eventb.core.variable name="_EhZgQzCYEeqMhoZral7PXw" org.eventb.core.comment="represents the endpoints of the microservices in the resgistry" org.eventb.core.generated="false" org.eventb.core.identifier="endpoints"/>
+<org.eventb.core.variable name="_EhaHUDCYEeqMhoZral7PXw" org.eventb.core.comment="represents the api for health checking a service endpoint" org.eventb.core.generated="false" org.eventb.core.identifier="health_apis"/>
+<org.eventb.core.variable name="_EhaHUTCYEeqMhoZral7PXw" org.eventb.core.comment="represents the last response obtained from querying a service's endpoints" org.eventb.core.generated="false" org.eventb.core.identifier="last_endpoint_query_result"/>
+<org.eventb.core.variable name="_EhaHUjCYEeqMhoZral7PXw" org.eventb.core.comment="represents the last response obtained from querying an endpoint's health apis" org.eventb.core.generated="false" org.eventb.core.identifier="last_health_query_result"/>
+<org.eventb.core.invariant name="_EhauYDCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="inv1" org.eventb.core.predicate="services ⊆ S"/>
+<org.eventb.core.invariant name="_EhauYTCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="inv2" org.eventb.core.predicate="endpoints ∈ services → ℙ(E)"/>
+<org.eventb.core.invariant name="_EhauYjCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="inv4" org.eventb.core.predicate="last_endpoint_query_result ∈ ℙ(E)"/>
+<org.eventb.core.invariant name="_EhbVcDCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="inv3" org.eventb.core.predicate="health_apis ∈ union(ran(endpoints)) → HCA"/>
+<org.eventb.core.invariant name="_EhbVcTCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="inv5" org.eventb.core.predicate="last_health_query_result ∈ ℙ(HCA)"/>
+<org.eventb.core.event name="_EhbVcjCYEeqMhoZral7PXw" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="register">
+<org.eventb.core.refinesEvent name="_Ehb8gDCYEeqMhoZral7PXw" org.eventb.core.target="register"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_Ehb8gTCYEeqMhoZral7PXw" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="unregister">
+<org.eventb.core.refinesEvent name="_Ehb8gjCYEeqMhoZral7PXw" org.eventb.core.target="unregister"/>
+<org.eventb.core.action name="_EhcjkDCYEeqMhoZral7PXw" org.eventb.core.assignment="health_apis ≔ endpoints(a_service) ⩤ health_apis" org.eventb.core.comment="domain substraction" org.eventb.core.generated="false" org.eventb.core.label="act3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_EhcjkTCYEeqMhoZral7PXw" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="add_endpoint">
+<org.eventb.core.refinesEvent name="_EhcjkjCYEeqMhoZral7PXw" org.eventb.core.target="add_endpoint"/>
+<org.eventb.core.parameter name="_EhdKoDCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="a_health_check_api"/>
+<org.eventb.core.guard name="_EhdKoTCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="a_health_check_api ∈ HCA"/>
+<org.eventb.core.action name="_EhdKojCYEeqMhoZral7PXw" org.eventb.core.assignment="health_apis(an_endpoint) ≔ a_health_check_api" org.eventb.core.generated="false" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_EhdxsDCYEeqMhoZral7PXw" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="remove_endpoint">
+<org.eventb.core.refinesEvent name="_EhdxsTCYEeqMhoZral7PXw" org.eventb.core.target="remove_endpoint"/>
+<org.eventb.core.action name="_EhdxsjCYEeqMhoZral7PXw" org.eventb.core.assignment="health_apis ≔ { an_endpoint } ⩤ health_apis" org.eventb.core.comment="domain substraction" org.eventb.core.generated="false" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_ioE7sPJCEeqvyO1zloiqOQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="query_endpoints">
+<org.eventb.core.refinesEvent name="_ioE7sfJCEeqvyO1zloiqOQ" org.eventb.core.target="query_endpoints"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_EheYwjCYEeqMhoZral7PXw" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="query_health_apis">
+<org.eventb.core.parameter name="_EheYwzCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="an_endpoint"/>
+<org.eventb.core.parameter name="_Ehe_0DCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="result"/>
+<org.eventb.core.guard name="_Ehe_0TCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="an_endpoint ∈ E"/>
+<org.eventb.core.guard name="_Ehe_0jCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="result ⊆ HCA"/>
+<org.eventb.core.guard name="_Ehe_0zCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="an_endpoint ∈ union(ran(endpoints)) ⇒ result = { health_apis(an_endpoint) }"/>
+<org.eventb.core.guard name="_Ehe_1DCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="an_endpoint ∉ union(ran(endpoints)) ⇒ result = ∅"/>
+<org.eventb.core.action name="_Ehfm4DCYEeqMhoZral7PXw" org.eventb.core.assignment="last_health_query_result ≔ result" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>

@@ -1,0 +1,95 @@
+{
+    "observers": [
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "circuit_breaker"
+                ],
+                "selector": ".state",
+                "trigger": "console.log(origin.id);\nif ((origin.attr('id') == 'open' && values[0] === 'OPEN') ||\n   (origin.attr('id') == 'closed' && values[0] === 'CLOSED') || \n   (origin.attr('id') == 'halfopen' && values[0] === 'HALF_OPEN')) {\n  origin.attr('visibility','display');\n} else {\n  origin.attr('visibility','hidden');\n}",
+                "refinementJs": false
+            }
+        },
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "consecutive_errors"
+                ],
+                "selector": "#consecutive_errors",
+                "trigger": "origin.text(values[0])"
+            }
+        },
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "timestamp_cb_trips"
+                ],
+                "selector": "#timestamp_cb_trips",
+                "trigger": "origin.text(values[0])"
+            }
+        },
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "TIMEOUT_PERIOD"
+                ],
+                "selector": "#timeout",
+                "trigger": "origin.text(values[0])"
+            }
+        },
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "THRESHOLD"
+                ],
+                "selector": "#threshold",
+                "trigger": "origin.text(values[0])"
+            }
+        },
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "circuit_breaker"
+                ],
+                "selector": ".tohide",
+                "trigger": "if(values[0] === \"OPEN\") {\n  origin.attr('visibility','hidden');\n} else {\n  origin.attr('visibility','display');\n}"
+            }
+        },
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "time"
+                ],
+                "selector": "#time",
+                "trigger": "origin.text(values[0])"
+            }
+        },
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "test_request_to_go"
+                ],
+                "selector": "#test_request_to_go",
+                "trigger": "origin.text(values[0])"
+            }
+        },
+        {
+            "type": "formula",
+            "data": {
+                "formulas": [
+                    "AMOUNT_TEST_REQUESTS"
+                ],
+                "selector": "#AMOUNT_TEST_REQUESTS",
+                "trigger": "origin.text(values[0])"
+            }
+        }
+    ]
+}

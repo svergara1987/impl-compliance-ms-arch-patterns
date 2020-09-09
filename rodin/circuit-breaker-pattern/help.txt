@@ -1,0 +1,163 @@
+Running ProB Command-line Interface
+probcli --help
+ProB Command Line Interface
+  VERSION 1.9.0-release (718e254497d921bb4f82945fefdb73774780d007)
+  Wed Jul 17 16:07:40 2019 +0200
+  Prolog: SICStus 4.5.1 (x86_64-darwin-15.6.0): Tue Apr  2 15:33:59 CEST 2019
+  COMPILE TIME FLAGS: [prob_release,SP_TIMEOUT_IMPLEMENTATON=legacy]
+Usage: probcli FILE [OPTIONS]
+  OPTIONS are: 
+     -mc Nr       model check; checking at most Nr states
+     -model_check model check without limit on states explored
+     -noXXX       XXX=dead,inv,goal,ass (for model check)
+     -bf          proceed breadth-first (default is mixed bf/df)
+     -df          proceed depth-first
+     -mc_mode M   M=hash,heuristic,random,dlk,breadth-first,depth-first,mixed
+     -timeout N       total timeout in ms for model/refinement checking and
+                      and execute steps and disprover checks
+     -disable_timeout disable timeouts for operations, invariants,....
+     -t               trace check (associated .trace file must exist)
+     -init            initialise specification
+     -cbc OPNAME      constraint-based invariant checking for an operation
+                      (you can also use OPNAME=all)
+     -cbc_deadlock    constraint-based deadlock checking
+     -cbc_assertions  constraint-based static assertion checking
+     -cbc_refinement  constraint-based static refinement checking
+     -cbc_sequence S  constraint-based search for sequence of operations
+     -strict          raise error if model-checking finds counter example
+                      or trace checking fails or any error state found
+     -expcterr ERR    expect error to occur (ERR=cbc,mc,ltl,...)
+     -animate Nr      random animation (max. Nr steps)
+     -animate_all     random animation until a deadlock is reached
+     -animate_stats   provide feedback which operations are executed
+     -execute Nr      execute first operation found without storing states (max. Nr steps)
+     -execute_all     execute first operation found until a deadlock is reached
+     -his File        write history to File
+     -his_option O    additional option when writing a history (show_init,show_states,json,trace_file)
+     -sptxt File      save constants and variable values of last discovered state to File
+     -sstxt Dir       save constants and variable values of all discovered states to files in Dir
+     -cache Directory automatically save constants to files and avoid recomputation
+     -det_check       check if animation steps are deterministic
+     -det_constants   only check if SETUP_CONSTANTS step is deterministic
+     -repl            start interactive read-eval-loop
+     -eval "E"        evaluate expression or predicate
+     -eval_file FILE  evaluate expression or predicate from file
+     -c               print coverage statistics
+     -cc Nr Nr        print and check coverage statistics
+     -vacuity_check   look for vacuous implications in invariant
+     -cbc_redundant_invariants Nr  find redundant invariants, expecting Nr
+     -statistics      print memory and other statistics at the end
+     -p PREF Val      set preference to value
+     -prefs FILE      set preferences from Prolog file
+     -pref_group GROUP SETTING  set group of preferences to predefined values
+     -card GS Val     set scope of B deferred set
+     -goal "PRED"     set GOAL predicate for model checker
+     -check_goal      check GOAL (after -mc, -t, or -animate)
+     -scope "PRED"    set scope predicate for model checker
+     -s Port          start socket server on given port
+     -ss              start socket server on port 9000
+     -sf              start socket server on some free port
+     -l LogFile       log activities in LogFile
+     -ll              log activities in /tmp/prob_cli_debug.log
+     -logxml LogFile      log activities in XML LogFile
+     -logxml_write_ids P  write variables/constants starting with P to XML LogFile
+     -pp FILE         pretty-print internal representation to file (or user_output)
+     -ppf FILE        like -pp, but force printing of all type infos
+     -ppB FILE        pretty-print Event-B model to file in valid B syntax
+     -v               verbose
+     -mc_with_tlc        model check using the model checker TLC
+     -mc_with_lts_sym    model check using the model checker LTSmin (symbolic)
+     -mc_with_lts_seq    model check using the model checker LTSmin (sequential)
+     -version            print version information (-svers for short info)
+     -check_java_version check that Java version compatible with ProB parser
+     -assertions         check ASSERTIONS
+     -main_assertions    check ASSERTIONS from main file only
+     -properties         check PROPERTIES
+     -cache Dir          use directory "Dir" to cache constants and variables
+     -ltlfile F          check LTL formulas in file F
+     -ltlassertions      check LTL assertions (in DEFINITIONS)
+     -ltllimit L         explore at most L states when model-checking LTL or CTL
+     -ltlformula "F"   check the LTL formula F
+     -ctlformula "F"   check the CTL formula F
+     -save File          save state space for later refinement check
+     -refchk File        refinement check against previous saved state space
+     -mcm_tests Depth MaxStates EndPredicate File
+                  generate test cases with maximum length Depth, explore
+                  maximally MaxStates, the last state satisfies EndPredicate
+                  and the test cases are written to File
+     -mcm_cover Operation
+                  when generating MCM test cases, Operation should be covered
+     -cbc_tests Depth EndPredicate File
+                  generate test cases by constraint solving with maximum
+                  length Depth, the last state satisfies EndPredicate
+                  and the test cases are written to File
+     -cbc_cover Operation
+                  when generating CBC test cases, Operation should be covered
+     -test_description File
+                      read information for test generation from File
+     -dot CMD File         write a graph to a dot file, with CMD being one of:
+          machine_hierarchy : Shows the machine hierarchy of a classical B model
+          event_hierarchy : Shows the event hierarchy of an Event-B model
+          state_space : Show state space
+          state_space_sfdp : Show state space (fast)
+          current_state : Show current state and successors in state space
+          signature_merge : Show signature-merged reduced state space
+          dfa_merge : Show state space as deterministic automaton (DFA)
+          enable_graph : Show enabling graph of events
+          state_as_graph : Show values in current state as a graph
+          custom_graph : Show values in current state as a graph using CUSTOM_GRAPH_EDGES
+          invariant : Show invariant as a formula tree
+          properties : Show properties as a formula tree
+          assertions : Show assertions as a formula tree
+          deadlock : Show deadlocking status as a formula tree
+          goal : Show GOAL as a formula tree
+          dependence_graph : Show dependence graph of events
+          variable_modification_graph : Show variable modification by operations and reading in guards
+          definitions : Show dependence graph of DEFINITIONS
+          last_error : Show last error source as a formula tree
+     -dotexpr CMD Expr File write a graph for Expr to a dot file, with CMD:
+          transition_diagram : Project state space onto expression values and show transition diagram
+          expr_as_graph : Show (relational) expression value as a graph
+          formula_tree : Show predicate/expressions and sub-formulas as a tree
+          predicate_dependency : Show dependence graph of conjuncts of a predicate
+     -dot_output      Path generate dot files for false assertions/properties
+     -dot_all         also generate dot files for true assertions/properties
+     -csvhist E File  evaluate expression over history and generate CSV file.
+     -load_state File load state from a saved state (generated by ProB Tcl/Tk or -save_state)
+     -cspref Spec [m= Impl File
+                  checks a refinement statement,
+                  where Spec and Impl are processes from File, and 'm' the type of the refinement:
+                  'T' for traces, 'F' for failures, or 'FD' for failures-divergences.
+     -cspdeadlock P m File
+                  checks a process for deadlock,
+                  where 'P' is a process from File, and 'm' the type of the model:
+                  'F' for failures and 'FD' for failures-divergences.
+     -cspdeterministic P m File
+                  checks a process for determinism,
+                  where 'P' is a process from File, and 'm' the type of the model:
+                  'F' for failures and 'FD' for failures-divergences.
+     -csplivelock P File
+                  checks a process for divergence,
+                  where 'P' is a process from File.
+     -csp_assertion "A" File
+                  checks the CSP assertion 'A' on file 'File'
+     -csp_eval "E" evaluate CSP-M expression.
+     -csp-guide File   CSP||B: Use the CSP File to control the B machine
+     
+ FILE extensions are: 
+      .mch         for B abstract machines
+      .ref         for B refinement machines
+      .imp         for B implementation machines
+      .sys         for Event-B abstract machines
+      .rmch        for B Rule DSL machines
+      .csp, .cspm  for CSP-M files, same format as FDR
+      .eventb      for Event-B packages exported from Rodin ProB Plugin
+      .tex, .zed   for Z models
+      .tla         for TLA+ models
+      .als         for Alloy models
+      .P           for Prolog XTL models
+ Use --help -v to print available preferences PREF
+ Set NO_COLOR environment variable to disable terminal colors
+ More info at: http://www.stups.hhu.de/ProB/
+       and at: http://www.prob2.de/probcli/
+

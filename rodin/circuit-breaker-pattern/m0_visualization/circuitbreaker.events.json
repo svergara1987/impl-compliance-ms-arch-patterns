@@ -1,0 +1,32 @@
+{
+    "events": [
+        {
+            "type": "executeEvent",
+            "data": {
+                "events": [
+                    {
+                        "name": "request",
+                        "predicate": "var microservice_response_ok = container.find(\"#microservice_response_ok\").prop(\"checked\");\nif (microservice_response_ok)\n  return \"microservice_response=TRUE\";\nelse\n  return \"microservice_response=FALSE\";\n",
+                        "predicateJs": true,
+                        "nameJs": false
+                    }
+                ],
+                "selector": "#send_request",
+                "label": "return \"send request\""
+            }
+        },
+        {
+            "type": "executeEvent",
+            "data": {
+                "events": [
+                    {
+                        "name": "clock",
+                        "predicate": ""
+                    }
+                ],
+                "selector": "#clock",
+                "label": "return \"tick clock\""
+            }
+        }
+    ]
+}

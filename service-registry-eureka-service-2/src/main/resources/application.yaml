@@ -3,7 +3,7 @@ spring:
         name: service-registry-eureka-client-people
         
 server:
-  port: 8093
+  port: 8094
   
 eureka:
   client:

@@ -1,0 +1,11 @@
+{
+    "id": "circuitbreaker",
+    "template": "index.html",
+    "model": "../m0_circuit_breaker.bcm",
+    "observers": "circuitbreaker.observers.json",
+    "events": "circuitbreaker.events.json",
+    "autoOpen": [
+        "CurrentTrace",
+        "StateInspector"
+    ]
+}

@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>uy.edu.fing.uy.svergara</groupId>
-	<artifactId>service-registry-eureka-service-2</artifactId>
+	<artifactId>service-registry-eureka-service-1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>service-registry-eureka-service-2</name>
+	<name>service-registry-eureka-service-1</name>
 	<description>Service Registry Eureka Service Project</description>
 
 	<properties>

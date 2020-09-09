@@ -1,0 +1,89 @@
+{
+    "events": [
+        {
+            "type": "executeEvent",
+            "data": {
+                "events": [
+                    {
+                        "name": "query_endpoints",
+                        "predicate": "var serviceId = container.find(\"#service\").val();\nreturn \"a_service=\"+serviceId;",
+                        "predicateJs": true,
+                        "nameJs": false
+                    }
+                ],
+                "selector": "#qendpoint",
+                "callback": "",
+                "label": "console.log(event);\nconsole.log(event.predicate);\nreturn \"query endpoint\";"
+            }
+        },
+        {
+            "type": "executeEvent",
+            "data": {
+                "events": [
+                    {
+                        "name": "query_health_apis",
+                        "predicate": "var endpointId = container.find(\"#endpoint\").val();\nreturn \"an_endpoint=\"+endpointId;",
+                        "predicateJs": true
+                    }
+                ],
+                "selector": "#qhca",
+                "label": "console.log(event);\nconsole.log(event.predicate);\nreturn \"query hca\";"
+            }
+        },
+        {
+            "type": "executeEvent",
+            "data": {
+                "events": [
+                    {
+                        "name": "register",
+                        "predicate": "var serviceId = container.find(\"#service\").val();\nreturn \"a_service=\"+serviceId;",
+                        "predicateJs": true
+                    }
+                ],
+                "selector": "#register",
+                "label": "return \"register service\""
+            }
+        },
+        {
+            "type": "executeEvent",
+            "data": {
+                "events": [
+                    {
+                        "name": "add_endpoint",
+                        "predicate": "var serviceId = container.find(\"#service\").val();\nvar endpointId = container.find(\"#endpoint\").val();\nvar hcaId = container.find(\"#hca\").val();\nreturn \"a_service=\"+serviceId+\" & an_endpoint=\"+endpointId+\" & a_health_check_api=\"+hcaId;",
+                        "predicateJs": true
+                    }
+                ],
+                "selector": "#add_endpoint"
+            }
+        },
+        {
+            "type": "executeEvent",
+            "data": {
+                "events": [
+                    {
+                        "name": "unregister",
+                        "predicate": "var serviceId = container.find(\"#service\").val();\nreturn \"a_service=\"+serviceId;",
+                        "predicateJs": true
+                    }
+                ],
+                "selector": "#unreg_svc",
+                "label": "return \"unregister service\""
+            }
+        },
+        {
+            "type": "executeEvent",
+            "data": {
+                "events": [
+                    {
+                        "name": "remove_endpoint",
+                        "predicate": "var serviceId = container.find(\"#service\").val();\nvar endpointId = container.find(\"#endpoint\").val();\nreturn \"a_service=\"+serviceId+\" & an_endpoint=\"+endpointId;",
+                        "predicateJs": true
+                    }
+                ],
+                "selector": "#rmv_endpoint",
+                "label": "return \"remove endpoint\""
+            }
+        }
+    ]
+}

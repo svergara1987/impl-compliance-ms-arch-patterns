@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1578324293473" org.eventb.texttools.text_representation="context c1_service_registry_w_health_check extends c0_service_registry&#10;&#10;sets HCA // set of all possible health check apis to assign to each endpoint&#10;&#10;&#10;constants HCA1 HCA2 HCA3 HCA4&#10;&#10;axioms&#10;  @ax3 partition(HCA,{HCA1},{HCA2},{HCA3},{HCA4})&#10;end&#10;" version="3">
+    <org.eventb.core.extendsContext name="_sAkZUDCYEeqMhoZral7PXw" org.eventb.core.target="c0_service_registry"/>
+    <org.eventb.core.carrierSet name="_lVK4UTCYEeqMhoZral7PXw" org.eventb.core.comment="set of all possible health check apis to assign to each endpoint" org.eventb.core.generated="false" org.eventb.core.identifier="HCA"/>
+    <org.eventb.core.constant name="_lVLfYDCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="HCA1"/>
+    <org.eventb.core.constant name="_lVLfYTCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="HCA2"/>
+    <org.eventb.core.constant name="_lVLfYjCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="HCA3"/>
+    <org.eventb.core.constant name="_lVLfYzCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.identifier="HCA4"/>
+    <org.eventb.core.axiom name="_lVLfZDCYEeqMhoZral7PXw" org.eventb.core.generated="false" org.eventb.core.label="ax3" org.eventb.core.predicate="partition(HCA,{HCA1},{HCA2},{HCA3},{HCA4})"/>
+</org.eventb.core.contextFile>

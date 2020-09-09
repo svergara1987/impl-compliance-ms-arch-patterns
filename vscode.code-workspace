@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../rodin-workspace"
 		}
 	],
 	"settings": {

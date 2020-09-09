@@ -1,0 +1,104 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\MultiTitle{circuit-breaker-pattern}
+\MultiHeader{CONTEXT}{c0\_circuit\_breaker}
+\CONTEXT{c0\_circuit\_breaker}{}{}
+\SETS{
+	\Set{CIRCUIT\_BREAKER\_STATE}{}
+}
+\CONSTANTS{
+	\Constant{THRESHOLD}{}
+	\Constant{OPEN}{}
+	\Constant{CLOSED}{}
+	\Constant{TIMEOUT\_PERIOD}{}
+	\Constant{HALF\_OPEN}{}
+	\Constant{AMOUNT\_TEST\_REQUESTS}{}
+}
+\AXIOMS{
+	\Axiom{ax1}{false}{$THRESHOLD \in{} \natn{}$}{}
+	\Axiom{ax2}{false}{$TIMEOUT\_PERIOD \in{} \natn{}$}{}
+	\Axiom{ax3}{false}{$partition(CIRCUIT\_BREAKER\_STATE,\{OPEN\},\{CLOSED\},\{HALF\_OPEN\})$}{}
+	\Axiom{ax4}{false}{$AMOUNT\_TEST\_REQUESTS \in{} \natn{}$}{}
+	\Axiom{init1}{false}{$THRESHOLD = 3$}{}
+	\Axiom{init2}{false}{$TIMEOUT\_PERIOD = 2$}{}
+	\Axiom{init3}{false}{$AMOUNT\_TEST\_REQUESTS = 3$}{}
+}
+\END
+\MultiHeader{MACHINE}{m0\_circuit\_breaker}
+\MACHINE{m0\_circuit\_breaker}{}{c0\_circuit\_breaker}{}
+\VARIABLES{
+	\Variable{consecutive\_errors}{represents the amount of consecutive errors}
+	\Variable{circuit\_breaker}{represents the state of the circuit breaker}
+	\Variable{time}{represents current time, always moving forward}
+	\Variable{timestamp\_cb\_trips}{represents the timestap since when the circuit breaker trips}
+	\Variable{test\_request\_to\_go}{represents the amount of test request that must respond ok during the HALF$\_$OPEN state to switch to the CLOSED state}
+}
+\INVARIANTS{
+	\Invariant{inv1}{false}{$time \in{} \nat{}$}{}
+	\Invariant{inv2}{false}{$timestamp\_cb\_trips \in{} \nat{}$}{}
+	\Invariant{inv3}{false}{$consecutive\_errors \in{} \nat{}$}{}
+	\Invariant{inv4}{false}{$circuit\_breaker \in{} CIRCUIT\_BREAKER\_STATE$}{}
+	\Invariant{inv5}{false}{$test\_request\_to\_go \in{} \nat{}$}{}
+}
+\EVENTS{
+\INITIALISATION{false}{}{
+	\ACTIONS{false}{
+		\Action{init1}{$time \bcmeq{} 0$}{true}{}
+		\Action{init2}{$timestamp\_cb\_trips \bcmeq{} 0$}{true}{}
+		\Action{init3}{$consecutive\_errors \bcmeq{} 0$}{true}{}
+		\Action{init4}{$circuit\_breaker \bcmeq{} CLOSED$}{true}{}
+		\Action{init5}{$test\_request\_to\_go \bcmeq{} AMOUNT\_TEST\_REQUESTS$}{true}{}
+	}
+}
+\EVT{request}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{microservice\_response}{true}{represents wheather the microservice response or not}
+		\Param{new\_circuit\_breaker}{true}{represents the new state of the circuit breaker}
+		\Param{new\_consecutive\_errors}{true}{represents the new count of consecutive errors}
+		\Param{new\_timestamp\_cb\_trips}{true}{represents the timestap since when the circuit breaker trips}
+		\Param{new\_test\_request\_to\_go}{true}{represents the remaining number of request to switch to the CLOSED state}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$microservice\_response \in{} BOOL$}{true}{}
+		\Guard{grd2}{false}{$new\_circuit\_breaker \in{} CIRCUIT\_BREAKER\_STATE$}{true}{}
+		\Guard{grd3}{false}{$new\_consecutive\_errors \in{} \nat{}$}{true}{}
+		\Guard{grd4}{false}{$new\_timestamp\_cb\_trips \in{} \nat{}$}{true}{}
+		\Guard{grd5}{false}{$new\_test\_request\_to\_go \in{} \nat{}$}{true}{}
+		\Guard{grd6}{false}{$circuit\_breaker = CLOSED \land{} microservice\_response = TRUE \limp{} new\_consecutive\_errors = 0$}{true}{}
+		\Guard{grd7}{false}{$circuit\_breaker = CLOSED \land{} microservice\_response = FALSE \limp{} new\_consecutive\_errors = consecutive\_errors + 1$}{true}{}
+		\Guard{grd8}{false}{$circuit\_breaker = CLOSED \land{} new\_consecutive\_errors \geq{} THRESHOLD \limp{} new\_circuit\_breaker = OPEN \land{} new\_timestamp\_cb\_trips = time$}{true}{}
+		\Guard{grd9}{false}{$circuit\_breaker = CLOSED \land{} new\_consecutive\_errors < THRESHOLD \limp{} new\_circuit\_breaker = CLOSED \land{} new\_timestamp\_cb\_trips = timestamp\_cb\_trips$}{true}{}
+		\Guard{grd10}{false}{$circuit\_breaker = CLOSED \limp{} new\_test\_request\_to\_go = AMOUNT\_TEST\_REQUESTS$}{true}{}
+		\Guard{grd11}{false}{$circuit\_breaker = OPEN \limp{} new\_circuit\_breaker = OPEN \land{} new\_consecutive\_errors = 0 \land{} new\_test\_request\_to\_go = AMOUNT\_TEST\_REQUESTS \land{} new\_timestamp\_cb\_trips = timestamp\_cb\_trips$}{true}{}
+		\Guard{grd12}{false}{$circuit\_breaker = HALF\_OPEN \land{} microservice\_response = FALSE \limp{} new\_circuit\_breaker = OPEN \land{} new\_test\_request\_to\_go = AMOUNT\_TEST\_REQUESTS$}{true}{}
+		\Guard{grd13}{false}{$circuit\_breaker = HALF\_OPEN \land{} microservice\_response = TRUE \limp{} new\_test\_request\_to\_go = test\_request\_to\_go - 1$}{true}{}
+		\Guard{grd14}{false}{$circuit\_breaker = HALF\_OPEN \land{} microservice\_response = TRUE \land{} new\_test\_request\_to\_go = 0 \limp{} new\_circuit\_breaker = CLOSED$}{true}{}
+		\Guard{grd15}{false}{$circuit\_breaker = HALF\_OPEN \land{} microservice\_response = TRUE \land{} new\_test\_request\_to\_go > 0 \limp{} new\_circuit\_breaker = HALF\_OPEN$}{true}{}
+		\Guard{grd16}{false}{$circuit\_breaker = HALF\_OPEN \limp{} new\_consecutive\_errors = 0 \land{} new\_timestamp\_cb\_trips = time$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$consecutive\_errors \bcmeq{} new\_consecutive\_errors$}{true}{}
+		\Action{act2}{$circuit\_breaker \bcmeq{} new\_circuit\_breaker$}{true}{}
+		\Action{act3}{$timestamp\_cb\_trips \bcmeq{} new\_timestamp\_cb\_trips$}{true}{}
+		\Action{act4}{$test\_request\_to\_go \bcmeq{} new\_test\_request\_to\_go$}{true}{}
+	}
+}
+\EVT{clock}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{new\_circuit\_breaker}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$new\_circuit\_breaker \in{} CIRCUIT\_BREAKER\_STATE$}{true}{}
+		\Guard{grd2}{false}{$circuit\_breaker = OPEN \land{} (time + 1 - timestamp\_cb\_trips = TIMEOUT\_PERIOD) \limp{} new\_circuit\_breaker = HALF\_OPEN$}{true}{}
+		\Guard{grd3}{false}{$circuit\_breaker = OPEN \land{} (time + 1 - timestamp\_cb\_trips \neq{} TIMEOUT\_PERIOD) \limp{} new\_circuit\_breaker = circuit\_breaker$}{true}{}
+		\Guard{grd4}{false}{$circuit\_breaker = CLOSED \lor{} circuit\_breaker = HALF\_OPEN \limp{} new\_circuit\_breaker = circuit\_breaker$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$time \bcmeq{} time + 1$}{true}{}
+		\Action{act3}{$circuit\_breaker \bcmeq{} new\_circuit\_breaker$}{true}{}
+	}
+}
+}
+\END
+\end{document}
