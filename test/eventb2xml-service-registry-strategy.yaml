@@ -4,5 +4,5 @@ kind: random
 metadata:
   name: random generation
 count: 3
-steps: 10
+steps: 30
 timeout: 60

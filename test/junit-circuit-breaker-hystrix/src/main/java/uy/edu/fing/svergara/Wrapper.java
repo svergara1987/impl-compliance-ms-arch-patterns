@@ -21,6 +21,7 @@ public class Wrapper {
 			CircuitBreaker circuit_breaker, Integer consecutive_errors, Integer test_request_to_go, Integer time,
 			Integer timestamp_cb_trips) {
 		System.out.println("[test log] [" + System.currentTimeMillis() + "] initialisation()");
+		request(true);
 		String requestURL = "http://localhost:8090/reset";
 		OkHttpClient client = new OkHttpClient().newBuilder().build();
 		Request request = new Request.Builder().url(requestURL).method("DELETE", null).build();

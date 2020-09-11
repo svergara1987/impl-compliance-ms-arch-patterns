@@ -13,6 +13,7 @@ public class Wrapper {
 			Integer timestamp_cb_trips) {
 		System.out.println(
 				"---------------------------------------------------------------------------------------------------");
+		request(true);
 		String requestURL = "http://localhost:8091/reset";
 		OkHttpClient client = new OkHttpClient().newBuilder().build();
 		Request request = new Request.Builder().url(requestURL).method("DELETE", null).build();
