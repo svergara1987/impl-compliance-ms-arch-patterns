@@ -114,7 +114,7 @@ def execute_strategy(machine_file, random_strategy, output_file):
                     machine_variables[variable_name] = variable_value
             else:  # it's an operation
                 # request(TRUE,OPEN,0,3,35);
-                match = re.search('(^[a-z,A-Z].*)\((.*)\)', line)
+                match = re.search('(^[a-z,A-Z].*?)\((.*)\)', line)
                 operation_name = match.group(1) #operation_name='request'
                 operation_parameters = match.group(2).split(',') #operation_parameters=['TRUE', 'CLOSED', '0', '3', '0']
                 step = etree.SubElement(a_test_case, "step")
