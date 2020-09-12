@@ -18,11 +18,15 @@ public class Variable {
 	}
 
 	public String getType() {
+		if (type == null) {
+			setType(String.class.getSimpleName());
+		}
 		return type;
 	}
 
-	public void setIgnore(Boolean ignore) {
+	public Variable setIgnore(Boolean ignore) {
 		this.ignore = ignore;
+		return this;
 	}
 
 	public void setName(String name) {

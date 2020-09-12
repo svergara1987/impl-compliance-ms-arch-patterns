@@ -14,7 +14,22 @@ public class TestGenStrategy {
 	private List<Variable> variables;
 
 	public Map<String, Variable> buildVariablesMap() {
-		Map<String, Variable> variableMap = new HashMap<>();
+		Map<String, Variable> variableMap = new HashMap<>() {
+
+			private static final long serialVersionUID = -2461586418332178719L;
+
+			@Override
+			public Variable get(Object key) {
+				Variable toReturn = super.get(key);
+				if (toReturn == null) {
+					toReturn = new Variable();
+					toReturn.setName((String) key);
+					this.put((String) key, toReturn);
+				}
+				return toReturn;
+			}
+
+		};
 		for (Variable aVariable : getVariables()) {
 			variableMap.put(aVariable.getName(), aVariable);
 		}

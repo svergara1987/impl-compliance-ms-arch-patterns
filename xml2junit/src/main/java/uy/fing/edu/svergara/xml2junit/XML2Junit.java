@@ -54,7 +54,11 @@ public class XML2Junit {
 		try {
 			Namespace ns = parser.parseArgs(args);
 			setUpLogger(ns.getString("verbose"));
-			SIMULATE = ns.getBoolean("simulate");
+			if (ns.get("simulate") == null) {
+				SIMULATE = false;
+			} else {
+				SIMULATE = ns.getBoolean("simulate");
+			}
 			new XML2Junit().execute(ns.getString("strategy"), ns.getString("testcases"));
 		} catch (ArgumentParserException e) {
 			e.printStackTrace();

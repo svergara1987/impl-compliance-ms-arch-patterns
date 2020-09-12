@@ -17,6 +17,10 @@ public class JunitVariable {
 	public String getValue() {
 		if (Boolean.class.getSimpleName().equalsIgnoreCase(getType())) {
 			value = String.valueOf(Boolean.parseBoolean(value));
+		} else if (String.class.getSimpleName().equalsIgnoreCase(getType())) {
+			if (!value.startsWith("\"")) {
+				value = "\"" + value + "\"";
+			}
 		}
 		return value;
 	}
