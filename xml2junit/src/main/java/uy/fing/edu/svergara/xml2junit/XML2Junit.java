@@ -210,8 +210,23 @@ public class XML2Junit {
 				}
 				logger.finest(aType.getName() + ".java generated ok");
 			} else {
-				logger.severe("supertype attribute is not valid");
-				throw new RuntimeException(aType.getName() + " supertype attribute is not valid");
+				typePath = new StringBuilder();
+				typePath.append(testGenStrategy.getProjectLocation()).append(File.separator);
+				typePath.append(testGenStrategy.getArtifactId()).append(File.separator);
+				typePath.append("src").append(File.separator);
+				typePath.append("main").append(File.separator);
+				typePath.append("java").append(File.separator);
+				typePath.append(testGenStrategy.getGroupId().replaceAll("[.]", File.separator)).append(File.separator);
+				typePath.append(aType.getName()).append(".java");
+				logger.finest(aType.getName() + " path = \"" + typePath.toString() + "\"");
+				if (SIMULATE) {
+					configuration.getTemplate("Type.ftl").process(FreeMarkerModelBuilderFactory.instance()
+							.buildFreemarkerTypeDataModel(testGenStrategy, aType), new OutputStreamWriter(System.out));
+				} else {
+					configuration.getTemplate("Type.ftl").process(FreeMarkerModelBuilderFactory.instance()
+							.buildFreemarkerTypeDataModel(testGenStrategy, aType), new FileWriter(typePath.toString()));
+				}
+				logger.finest(aType.getName() + ".java generated ok");
 			}
 		}
 		logger.finest("generating WrapperTest.java");

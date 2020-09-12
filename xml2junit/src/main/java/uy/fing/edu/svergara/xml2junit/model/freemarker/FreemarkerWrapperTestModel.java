@@ -14,6 +14,16 @@ public class FreemarkerWrapperTestModel {
 	private String packageName;
 	private List<JunitTestCase> testCases = null;
 
+	public String buildRightSideAssignment(String type, String value) {
+		if (isEnum(type)) {
+			return type + "." + value;
+		} else if (isNewType(type)) {
+			return type + ".parse(\"" + value + "\")";
+		} else {
+			return value;
+		}
+	}
+
 	public List<String> getIsValidParameters() {
 		if (isValidParameters == null) {
 			isValidParameters = new ArrayList<>();
@@ -71,13 +81,22 @@ public class FreemarkerWrapperTestModel {
 		}
 		return false;
 	}
-
-	public Boolean isEnum(String type) {
+	
+	private boolean isEnum(String type) {
 		if (type == null)
 			return false;
 		for (Type aType : getNewTypes()) {
 			if (type.equalsIgnoreCase(aType.getName())) {
 				return ENUM.equalsIgnoreCase(aType.getSupertype());
+			}
+		}
+		return false;
+	}
+
+	private boolean isNewType(String type) {
+		for (Type aNewType : getNewTypes()) {
+			if (aNewType.getName().equalsIgnoreCase(type)) {
+				return true;
 			}
 		}
 		return false;

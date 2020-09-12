@@ -18,17 +18,17 @@ public class WrapperTest extends TestCase {
 	public void testCase_${aTestCase.id}() {
 		// case setup
 		<#list aTestCase.initializationVariables as anInitializationVariable>
-		${anInitializationVariable.type} ${anInitializationVariable.name} = <#if isEnum(anInitializationVariable.type)>${anInitializationVariable.type}.</#if>${anInitializationVariable.value};
+		${anInitializationVariable.type} ${anInitializationVariable.name} = ${buildRightSideAssignment(anInitializationVariable.type, anInitializationVariable.value)};
 		</#list>
 		// case execution
 		Wrapper app = new Wrapper();
 		<#list aTestCase.steps as aStep>
 		<#list aStep.pre as pre>
-		<#if !isAlreadyDefined(aTestCase, aStep.id, pre.name)>${pre.type} </#if>${pre.name} = <#if isEnum(pre.type)>${pre.type}.</#if>${pre.value};
+		<#if !isAlreadyDefined(aTestCase, aStep.id, pre.name)>${pre.type} </#if>${pre.name} = ${buildRightSideAssignment(pre.type, pre.value)};
 		</#list>
 		app.${aStep.methodName}(${aStep.methodParameters?join(", ")});
 		<#list aStep.post as post>
-		<#if !isAlreadyDefined(aTestCase, aStep.id, post.name)>${post.type} </#if>${post.name} = <#if isEnum(post.type)>${post.type}.</#if>${post.value};
+		<#if !isAlreadyDefined(aTestCase, aStep.id, post.name)>${post.type} </#if>${post.name} = ${buildRightSideAssignment(post.type, post.value)};
 		</#list>
 		assertTrue(app.isValid(${isValidParameters?join(", ")}));
 		</#list>

@@ -38,6 +38,16 @@ public class FreeMarkerModelBuilderFactory {
 		return freemarkerModel;
 	}
 
+	public FreemarkerTypeModel buildFreemarkerTypeDataModel(TestGenStrategy testGenStrategy, Type aType) {
+		logger.finest(testGenStrategy.toString() + " and " + aType.toString());
+		FreemarkerTypeModel freemarkerModel = new FreemarkerTypeModel();
+		freemarkerModel.setPackageName(testGenStrategy.getGroupId());
+		freemarkerModel.setClassName(aType.getName());
+		freemarkerModel.setExtendsFrom(aType.getSupertype());
+		logger.finest(freemarkerModel.toString());
+		return freemarkerModel;
+	}
+
 	public FreemarkerWrapperModel buildFreemarkerWrapperDataModel(TestGenStrategy testGenStrategy,
 			ExtendedTestSuite extendedTestSuite) {
 		logger.finest(testGenStrategy.toString() + " and " + extendedTestSuite.toString());
@@ -91,6 +101,7 @@ public class FreeMarkerModelBuilderFactory {
 								+ variableMap.get(aValue.getName()).getType() + " and value " + aValue.getValue());
 						junitTestCase.getInitializationVariables().add(new JunitVariable().setName(aValue.getName())
 								.setType(variableMap.get(aValue.getName()).getType()).setValue(aValue.getValue()));
+						junitStep.getMethodParameters().add(aValue.getName());
 					} else {
 						logger.finest(aValue.getName() + "is set to be ignored in initialization");
 					}
@@ -99,8 +110,8 @@ public class FreeMarkerModelBuilderFactory {
 							+ String.class.getSimpleName() + " and value " + aValue.getValue());
 					junitTestCase.getInitializationVariables().add(new JunitVariable().setName(aValue.getName())
 							.setType(String.class.getSimpleName()).setValue(aValue.getValue()));
+					junitStep.getMethodParameters().add(aValue.getName());
 				}
-				junitStep.getMethodParameters().add(aValue.getName());
 			}
 			logger.finest(junitStep.toString());
 			logger.finest("building the rest of junitStep");
