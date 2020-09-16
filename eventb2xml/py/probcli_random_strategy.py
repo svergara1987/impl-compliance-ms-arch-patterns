@@ -43,6 +43,22 @@ def run_probcli_animate(machine_file, steps, output_file):
             probcli_global.get_logger().debug('probcli_animate stderr: {}'.format(line))
     probcli_global.get_logger().debug('ended executing run_probcli_animate')
 
+def split(s):
+    parts = []
+    bracket_level = 0
+    current = []
+    # trick to remove special-case of trailing chars
+    for c in (s + ","):
+        if c == "," and bracket_level == 0:
+            parts.append("".join(current))
+            current = []
+        else:
+            if c == "{":
+                bracket_level += 1
+            elif c == "}":
+                bracket_level -= 1
+            current.append(c)
+    return parts
 
 def execute_strategy(machine_file, random_strategy, output_file):
     probcli_global.get_logger().debug('starting to execute random strategy')
@@ -116,7 +132,7 @@ def execute_strategy(machine_file, random_strategy, output_file):
                 # request(TRUE,OPEN,0,3,35);
                 match = re.search('(^[a-z,A-Z].*?)\((.*)\)', line)
                 operation_name = match.group(1) #operation_name='request'
-                operation_parameters = match.group(2).split(',') #operation_parameters=['TRUE', 'CLOSED', '0', '3', '0']
+                operation_parameters = split(match.group(2)) #operation_parameters=['TRUE', 'CLOSED', '0', '3', '0']
                 step = etree.SubElement(a_test_case, "step")
                 step.attrib['name'] = operation_name
                 # to obtain operation parameters' names

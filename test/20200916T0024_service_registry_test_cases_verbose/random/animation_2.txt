@@ -1,0 +1,352 @@
+/* Initialisation */
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 0
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+query_health_apis(E6,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 0
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+query_health_apis(E5,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 0
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+clock({});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 1
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+query_endpoints(S4,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 1
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+query_health_apis(E6,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 1
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+query_health_apis(E3,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 1
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+query_endpoints(S4,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 1
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+query_endpoints(S4,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 1
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+clock({});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 2
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+query_health_apis(E5,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 2
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+query_health_apis(E3,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 2
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+query_endpoints(S3,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 2
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+query_endpoints(S5,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 2
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+clock({});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 3
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+query_health_apis(E6,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 3
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {}
+ & last_endpoint_query_result = {}
+ & services = {}
+*/
+register(S3);
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 3
+ & unavailable_endpoints = {}
+ & health_apis = {}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+add_endpoint(S3,E2,HCA1);
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 3
+ & unavailable_endpoints = {}
+ & health_apis = {(E2|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{E2})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+query_health_apis(E6,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 3
+ & unavailable_endpoints = {}
+ & health_apis = {(E2|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{E2})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+add_endpoint(S3,E1,HCA1);
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 3
+ & unavailable_endpoints = {}
+ & health_apis = {(E1|->HCA1),(E2|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{E1,E2})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+remove_endpoint(S3,E2);
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 3
+ & unavailable_endpoints = {}
+ & health_apis = {(E1|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{E1})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+query_health_apis(E3,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 3
+ & unavailable_endpoints = {}
+ & health_apis = {(E1|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{E1})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+clock({(E1|->TRUE)});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 4
+ & unavailable_endpoints = {}
+ & health_apis = {(E1|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{E1})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+query_health_apis(E4,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 4
+ & unavailable_endpoints = {}
+ & health_apis = {(E1|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{E1})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+add_endpoint(S3,E4,HCA1);
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 4
+ & unavailable_endpoints = {}
+ & health_apis = {(E1|->HCA1),(E4|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{E1,E4})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+query_endpoints(S5,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 4
+ & unavailable_endpoints = {}
+ & health_apis = {(E1|->HCA1),(E4|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{E1,E4})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+add_endpoint(S3,E2,HCA1);
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 4
+ & unavailable_endpoints = {}
+ & health_apis = {(E1|->HCA1),(E2|->HCA1),(E4|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{E1,E2,E4})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+remove_endpoint(S3,E2);
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 4
+ & unavailable_endpoints = {}
+ & health_apis = {(E1|->HCA1),(E4|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{E1,E4})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+query_health_apis(E6,{});
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 4
+ & unavailable_endpoints = {}
+ & health_apis = {(E1|->HCA1),(E4|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S3|->{E1,E4})}
+ & last_endpoint_query_result = {}
+ & services = {S3}
+*/
+register(S1);
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 4
+ & unavailable_endpoints = {}
+ & health_apis = {(E1|->HCA1),(E4|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S1|->{}),(S3|->{E1,E4})}
+ & last_endpoint_query_result = {}
+ & services = {S1,S3}
+*/
+add_endpoint(S1,E2,HCA1);
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 4
+ & unavailable_endpoints = {}
+ & health_apis = {(E1|->HCA1),(E2|->HCA1),(E4|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S1|->{E2}),(S3|->{E1,E4})}
+ & last_endpoint_query_result = {}
+ & services = {S1,S3}
+*/
+remove_endpoint(S3,E1)
+/* Variables
+   last_endpoint_active_query_result = {}
+ & time = 4
+ & unavailable_endpoints = {}
+ & health_apis = {(E2|->HCA1),(E4|->HCA1)}
+ & last_health_query_result = {}
+ & endpoints = {(S1|->{E2}),(S3|->{E4})}
+ & last_endpoint_query_result = {}
+ & services = {S1,S3}
+*/

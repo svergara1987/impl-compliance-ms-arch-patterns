@@ -9,6 +9,8 @@ types:
     supertype: java.util.HashMap<String, SetString>
   - name: HealthApis
     supertype: java.util.HashMap<String, String>
+  - name: HealthApiResponses
+    supertype: java.util.HashMap<String, Boolean>
 variables:
   - name: time
     type: Integer
@@ -30,3 +32,5 @@ variables:
     ignore: true
   - name: result2
     ignore: true
+  - name: health_api_responses
+    type: HealthApiResponses

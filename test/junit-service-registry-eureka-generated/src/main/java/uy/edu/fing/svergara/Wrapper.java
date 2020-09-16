@@ -14,7 +14,7 @@ public class Wrapper {
 		throw new RuntimeException("code not implemented yet");
 	}
 		
-	public void register (String a_service) {
+	public void clock (HealthApiResponses health_api_responses) {
 		throw new RuntimeException("code not implemented yet");
 	}
 		
@@ -22,7 +22,7 @@ public class Wrapper {
 		throw new RuntimeException("code not implemented yet");
 	}
 		
-	public void unregister (String a_service) {
+	public void register (String a_service) {
 		throw new RuntimeException("code not implemented yet");
 	}
 		
@@ -30,11 +30,11 @@ public class Wrapper {
 		throw new RuntimeException("code not implemented yet");
 	}
 		
-	public void clock (String health_api_responses) {
+	public void remove_endpoint (String a_service, String an_endpoint) {
 		throw new RuntimeException("code not implemented yet");
 	}
 		
-	public void remove_endpoint (String a_service, String an_endpoint) {
+	public void unregister (String a_service) {
 		throw new RuntimeException("code not implemented yet");
 	}
 		
