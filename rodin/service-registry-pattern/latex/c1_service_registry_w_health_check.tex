@@ -1,0 +1,19 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{c1\_service\_registry\_w\_health\_check}
+\CONTEXT{c1\_service\_registry\_w\_health\_check}{c0\_service\_registry}{}
+\SETS{
+	\Set{HCA}{set of all possible health check apis to assign to each endpoint}
+}
+\CONSTANTS{
+	\Constant{HCA1}{}
+	\Constant{HCA2}{}
+	\Constant{HCA3}{}
+	\Constant{HCA4}{}
+}
+\AXIOMS{
+	\Axiom{ax3}{false}{$partition(HCA,\{HCA1\},\{HCA2\},\{HCA3\},\{HCA4\})$}{}
+}
+\END
+\end{document}

@@ -1,0 +1,28 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{c0\_service\_registry}
+\CONTEXT{c0\_service\_registry}{}{}
+\SETS{
+	\Set{S}{set of all possible services}
+	\Set{E}{set of all possible endpoints to assign to the different services}
+}
+\CONSTANTS{
+	\Constant{S1}{}
+	\Constant{S2}{}
+	\Constant{S3}{}
+	\Constant{S4}{}
+	\Constant{S5}{}
+	\Constant{E1}{}
+	\Constant{E2}{}
+	\Constant{E3}{}
+	\Constant{E4}{}
+	\Constant{E5}{}
+	\Constant{E6}{}
+}
+\AXIOMS{
+	\Axiom{ax1}{false}{$partition(S,\{S1\},\{S2\},\{S3\},\{S4\},\{S5\})$}{}
+	\Axiom{ax2}{false}{$partition(E,\{E1\},\{E2\},\{E3\},\{E4\},\{E5\},\{E6\})$}{}
+}
+\END
+\end{document}

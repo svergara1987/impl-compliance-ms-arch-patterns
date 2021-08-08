@@ -1,0 +1,117 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{m1\_service\_registry\_w\_health\_check}
+\MACHINE{m1\_service\_registry\_w\_health\_check}{m0\_service\_registry}{c1\_service\_registry\_w\_health\_check}{}
+\VARIABLES{
+	\Variable{services}{represents the set of microservices in the registry}
+	\Variable{endpoints}{represents the endpoints of the microservices in the resgistry}
+	\Variable{health\_apis}{represents the api for health checking a service endpoint}
+	\Variable{last\_endpoint\_query\_result}{represents the last response obtained from querying a service's endpoints}
+	\Variable{last\_health\_query\_result}{represents the last response obtained from querying an endpoint's health apis}
+}
+\INVARIANTS{
+	\Invariant{inv1}{false}{$services \subseteq{} S$}{}
+	\Invariant{inv2}{false}{$endpoints \in{} services \tfun{} \pow{}(E)$}{}
+	\Invariant{inv4}{false}{$last\_endpoint\_query\_result \in{} \pow{}(E)$}{}
+	\Invariant{inv3}{false}{$health\_apis \in{} union(ran(endpoints)) \tfun{} HCA$}{}
+	\Invariant{inv5}{false}{$last\_health\_query\_result \in{} \pow{}(HCA)$}{}
+}
+\EVENTS{
+\INITIALISATION{false}{}{
+	\ACTIONS{false}{
+		\Action{init1}{$services \bcmeq{} \emptyset{}$}{true}{}
+		\Action{init2}{$endpoints \bcmeq{} \emptyset{}$}{true}{}
+		\Action{init3}{$last\_endpoint\_query\_result \bcmeq{} \emptyset{}$}{true}{}
+		\Action{init4}{$health\_apis \bcmeq{} \emptyset{}$}{true}{}
+		\Action{init5}{$last\_health\_query\_result \bcmeq{} \emptyset{}$}{true}{}
+	}
+}
+\EVT{register}{true}{ordinary}{register}{}{
+	\ANY{
+		\Param{a\_service}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$a\_service \in{} S\setminus{}services$}{false}{\\can only register a new service}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$services \bcmeq{} services \bunion{} \{a\_service\}$}{false}{}
+		\Action{act2}{$endpoints(a\_service) \bcmeq{} \emptyset{}$}{false}{}
+	}
+}
+\EVT{unregister}{true}{ordinary}{unregister}{}{
+	\ANY{
+		\Param{a\_service}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$a\_service \in{} services$}{false}{\\can only unregister existing services}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$endpoints \bcmeq{} \{a\_service\} \domsub{} endpoints$}{false}{\\domain substraction}
+		\Action{act2}{$services \bcmeq{} services\setminus{}\{a\_service\}$}{false}{}
+		\Action{act3}{$health\_apis \bcmeq{} endpoints(a\_service) \domsub{} health\_apis$}{true}{\\domain substraction}
+	}
+}
+\EVT{add\_endpoint}{true}{ordinary}{add\_endpoint}{}{
+	\ANY{
+		\Param{a\_service}{false}{}
+		\Param{an\_endpoint}{false}{}
+		\Param{a\_health\_check\_api}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$a\_service \in{} services$}{false}{\\can only add an endpoint to a previously registered service}
+		\Guard{grd2}{false}{$an\_endpoint \in{} E\setminus{}union(ran(endpoints))$}{false}{\\two services can not share endpoints}
+		\Guard{grd3}{false}{$a\_health\_check\_api \in{} HCA$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$endpoints(a\_service) \bcmeq{} endpoints(a\_service) \bunion{} \{an\_endpoint\}$}{false}{}
+		\Action{act2}{$health\_apis(an\_endpoint) \bcmeq{} a\_health\_check\_api$}{true}{}
+	}
+}
+\EVT{remove\_endpoint}{true}{ordinary}{remove\_endpoint}{}{
+	\ANY{
+		\Param{a\_service}{false}{}
+		\Param{an\_endpoint}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$a\_service \in{} services$}{false}{\\can only remove an endpoint from a previously registered service}
+		\Guard{grd2}{false}{$an\_endpoint \in{} endpoints(a\_service)$}{false}{\\can only remove a registered endpoint of a service}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$endpoints(a\_service) \bcmeq{} endpoints(a\_service)\setminus{}\{an\_endpoint\}$}{false}{}
+		\Action{act2}{$health\_apis \bcmeq{} \{ an\_endpoint \} \domsub{} health\_apis$}{true}{\\domain substraction}
+	}
+}
+\EVT{query\_endpoints}{true}{ordinary}{query\_endpoints}{}{
+	\ANY{
+		\Param{a\_service}{false}{}
+		\Param{result}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$a\_service \in{} S$}{false}{}
+		\Guard{grd2}{false}{$result \subseteq{} E$}{false}{}
+		\Guard{grd3}{false}{$a\_service \in{} services \limp{} result = endpoints(a\_service)$}{false}{}
+		\Guard{grd4}{false}{$a\_service \notin{} services \limp{} result = \emptyset{}$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$last\_endpoint\_query\_result \bcmeq{} result$}{false}{}
+	}
+}
+\EVT{query\_health\_apis}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{an\_endpoint}{true}{}
+		\Param{result}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$an\_endpoint \in{} E$}{true}{}
+		\Guard{grd2}{false}{$result \subseteq{} HCA$}{true}{}
+		\Guard{grd3}{false}{$an\_endpoint \in{} union(ran(endpoints)) \limp{} result = \{ health\_apis(an\_endpoint) \}$}{true}{}
+		\Guard{grd4}{false}{$an\_endpoint \notin{} union(ran(endpoints)) \limp{} result = \emptyset{}$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$last\_health\_query\_result \bcmeq{} result$}{true}{}
+	}
+}
+}
+\END
+\end{document}

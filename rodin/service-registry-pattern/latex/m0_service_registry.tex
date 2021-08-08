@@ -1,0 +1,91 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{m0\_service\_registry}
+\MACHINE{m0\_service\_registry}{}{c0\_service\_registry}{}
+\VARIABLES{
+	\Variable{services}{represents the set of microservices in the registry}
+	\Variable{endpoints}{represents the endpoints of the microservices in the resgistry}
+	\Variable{last\_endpoint\_query\_result}{represents the last response obtained from querying a service's endpoints}
+}
+\INVARIANTS{
+	\Invariant{inv1}{false}{$services \subseteq{} S$}{}
+	\Invariant{inv2}{false}{$endpoints \in{} services \tfun{} \pow{}(E)$}{}
+	\Invariant{inv4}{false}{$last\_endpoint\_query\_result \in{} \pow{}(E)$}{}
+}
+\EVENTS{
+\INITIALISATION{false}{}{
+	\ACTIONS{false}{
+		\Action{init1}{$services \bcmeq{} \emptyset{}$}{true}{}
+		\Action{init2}{$endpoints \bcmeq{} \emptyset{}$}{true}{}
+		\Action{init3}{$last\_endpoint\_query\_result \bcmeq{} \emptyset{}$}{true}{}
+	}
+}
+\EVT{register}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{a\_service}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$a\_service \in{} S\setminus{}services$}{true}{\\can only register a new service}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$services \bcmeq{} services \bunion{} \{a\_service\}$}{true}{}
+		\Action{act2}{$endpoints(a\_service) \bcmeq{} \emptyset{}$}{true}{}
+	}
+}
+\EVT{unregister}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{a\_service}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$a\_service \in{} services$}{true}{\\can only unregister existing services}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$endpoints \bcmeq{} \{a\_service\} \domsub{} endpoints$}{true}{\\domain substraction}
+		\Action{act2}{$services \bcmeq{} services\setminus{}\{a\_service\}$}{true}{}
+	}
+}
+\EVT{add\_endpoint}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{a\_service}{true}{}
+		\Param{an\_endpoint}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$a\_service \in{} services$}{true}{\\can only add an endpoint to a previously registered service}
+		\Guard{grd2}{false}{$an\_endpoint \in{} E\setminus{}union(ran(endpoints))$}{true}{\\two services can not share endpoints}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$endpoints(a\_service) \bcmeq{} endpoints(a\_service) \bunion{} \{an\_endpoint\}$}{true}{}
+	}
+}
+\EVT{remove\_endpoint}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{a\_service}{true}{}
+		\Param{an\_endpoint}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$a\_service \in{} services$}{true}{\\can only remove an endpoint from a previously registered service}
+		\Guard{grd2}{false}{$an\_endpoint \in{} endpoints(a\_service)$}{true}{\\can only remove a registered endpoint of a service}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$endpoints(a\_service) \bcmeq{} endpoints(a\_service)\setminus{}\{an\_endpoint\}$}{true}{}
+	}
+}
+\EVT{query\_endpoints}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{a\_service}{true}{}
+		\Param{result}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$a\_service \in{} S$}{true}{}
+		\Guard{grd2}{false}{$result \subseteq{} E$}{true}{}
+		\Guard{grd3}{false}{$a\_service \in{} services \limp{} result = endpoints(a\_service)$}{true}{}
+		\Guard{grd4}{false}{$a\_service \notin{} services \limp{} result = \emptyset{}$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$last\_endpoint\_query\_result \bcmeq{} result$}{true}{}
+	}
+}
+}
+\END
+\end{document}

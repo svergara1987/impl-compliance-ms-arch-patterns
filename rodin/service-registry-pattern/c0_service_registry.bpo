@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.poFile org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poIdentifier name="E" org.eventb.core.type="ℙ(E)"/>
-<org.eventb.core.poIdentifier name="S" org.eventb.core.type="ℙ(S)"/>
-<org.eventb.core.poIdentifier name="E1" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="E2" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="E3" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="E4" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="E5" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="E6" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="S1" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="S2" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="S3" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="S4" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="S5" org.eventb.core.type="S"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/service-registry-pattern/c0_service_registry.bpo|org.eventb.core.poFile#c0_service_registry|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="partition(S,{S1},{S2},{S3},{S4},{S5})" org.eventb.core.source="/service-registry-pattern/c0_service_registry.buc|org.eventb.core.contextFile#c0_service_registry|org.eventb.core.axiom#_azN8hDCYEeqMhoZral7PXw"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="partition(E,{E1},{E2},{E3},{E4},{E5},{E6})" org.eventb.core.source="/service-registry-pattern/c0_service_registry.buc|org.eventb.core.contextFile#c0_service_registry|org.eventb.core.axiom#_azOjkDCYEeqMhoZral7PXw"/>
-</org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="E" org.eventb.core.type="ℙ(E)"/>
+        <org.eventb.core.poIdentifier name="S" org.eventb.core.type="ℙ(S)"/>
+        <org.eventb.core.poIdentifier name="E1" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="E2" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="E3" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="E4" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="E5" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="E6" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="S1" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="S2" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="S3" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="S4" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="S5" org.eventb.core.type="S"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/service-registry-pattern/c0_service_registry.bpo|org.eventb.core.poFile#c0_service_registry|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="partition(S,{S1},{S2},{S3},{S4},{S5})" org.eventb.core.source="/service-registry-pattern/c0_service_registry.buc|org.eventb.core.contextFile#c0_service_registry|org.eventb.core.axiom#_azN8hDCYEeqMhoZral7PXw"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="partition(E,{E1},{E2},{E3},{E4},{E5},{E6})" org.eventb.core.source="/service-registry-pattern/c0_service_registry.buc|org.eventb.core.contextFile#c0_service_registry|org.eventb.core.axiom#_azOjkDCYEeqMhoZral7PXw"/>
+    </org.eventb.core.poPredicateSet>
 </org.eventb.core.poFile>
