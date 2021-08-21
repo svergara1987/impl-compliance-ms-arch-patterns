@@ -1,149 +1,149 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poIdentifier name="E" org.eventb.core.type="ℙ(E)"/>
-<org.eventb.core.poIdentifier name="S" org.eventb.core.type="ℙ(S)"/>
-<org.eventb.core.poIdentifier name="E1" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="E2" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="E3" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="E4" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="E5" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="E6" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="S1" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="S2" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="S3" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="S4" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="S5" org.eventb.core.type="S"/>
-<org.eventb.core.poPredicate name="S6" org.eventb.core.predicate="partition(S,{S1},{S2},{S3},{S4},{S5})" org.eventb.core.source="/service-registry-pattern/c0_service_registry.buc|org.eventb.core.contextFile#c0_service_registry|org.eventb.core.axiom#_azN8hDCYEeqMhoZral7PXw"/>
-<org.eventb.core.poPredicate name="S7" org.eventb.core.predicate="partition(E,{E1},{E2},{E3},{E4},{E5},{E6})" org.eventb.core.source="/service-registry-pattern/c0_service_registry.buc|org.eventb.core.contextFile#c0_service_registry|org.eventb.core.axiom#_azOjkDCYEeqMhoZral7PXw"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poIdentifier name="endpoints" org.eventb.core.type="ℙ(S×ℙ(E))"/>
-<org.eventb.core.poIdentifier name="last_endpoint_query_result" org.eventb.core.type="ℙ(E)"/>
-<org.eventb.core.poIdentifier name="services" org.eventb.core.type="ℙ(S)"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="INITIALISATION/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resulu"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(S×ℙ(E)))∈(∅ ⦂ ℙ(S)) → ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#'"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poSequent#INITIALISATION\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTlast_endpoint_query_resulu" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poIdentifier name="services'" org.eventb.core.type="ℙ(S)"/>
-<org.eventb.core.poIdentifier name="last_endpoint_query_result'" org.eventb.core.type="ℙ(E)"/>
-<org.eventb.core.poIdentifier name="endpoints'" org.eventb.core.type="ℙ(S×ℙ(E))"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPlast_endpoint_query_resulu" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTIDENTlast_endpoint_query_resulu" org.eventb.core.poStamp="0"/>
-<org.eventb.core.poSequent name="register/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resulv"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="endpoints{a_service ↦ (∅ ⦂ ℙ(E))}∈services∪{a_service} → ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bwO0DCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poSequent#register\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTlast_endpoint_query_resulv" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poIdentifier name="a_service" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="services'" org.eventb.core.type="ℙ(S)"/>
-<org.eventb.core.poIdentifier name="endpoints'" org.eventb.core.type="ℙ(S×ℙ(E))"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPlast_endpoint_query_resulv" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTIDENTlast_endpoint_query_resulv" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a_service∈S ∖ services" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bwO0DCXEeqMhoZral7PXw|org.eventb.core.guard#_8bwO0jCXEeqMhoZral7PXw"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="unregister/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resulw"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{a_service} ⩤ endpoints∈services ∖ {a_service} → ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bw14jCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poSequent#unregister\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTlast_endpoint_query_resulw" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poIdentifier name="a_service" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="services'" org.eventb.core.type="ℙ(S)"/>
-<org.eventb.core.poIdentifier name="endpoints'" org.eventb.core.type="ℙ(S×ℙ(E))"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPlast_endpoint_query_resulw" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTIDENTlast_endpoint_query_resulw" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a_service∈services" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bw14jCXEeqMhoZral7PXw|org.eventb.core.guard#_8bxc8TCXEeqMhoZral7PXw"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="add_endpoint/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resulx"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="endpoints{a_service ↦ endpoints(a_service)∪{an_endpoint}}∈services → ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8byEATCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poSequent#add_endpoint\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="add_endpoint/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resulx"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="a_service∈dom(endpoints)∧endpoints∈S ⇸ ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8byEATCXEeqMhoZral7PXw|org.eventb.core.action#_8bzSIDCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8byEATCXEeqMhoZral7PXw|org.eventb.core.action#_8bzSIDCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resulx"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTlast_endpoint_query_resulx" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poIdentifier name="a_service" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="an_endpoint" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="endpoints'" org.eventb.core.type="ℙ(S×ℙ(E))"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPlast_endpoint_query_resulx" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTIDENTlast_endpoint_query_resulx" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a_service∈services" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8byEATCXEeqMhoZral7PXw|org.eventb.core.guard#_8byrETCXEeqMhoZral7PXw"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="an_endpoint∈E ∖ union(ran(endpoints))" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8byEATCXEeqMhoZral7PXw|org.eventb.core.guard#_8byrEjCXEeqMhoZral7PXw"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="remove_endpoint/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTHYPlast_endpoint_query_resuly'"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="a_service∈dom(endpoints)∧endpoints∈S ⇸ ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw|org.eventb.core.guard#_8b0gQTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw|org.eventb.core.guard#_8b0gQTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTHYPlast_endpoint_query_resuly'"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="remove_endpoint/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resuly"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="endpoints{a_service ↦ endpoints(a_service) ∖ {an_endpoint}}∈services → ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poSequent#remove_endpoint\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="remove_endpoint/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resuly"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="a_service∈dom(endpoints)∧endpoints∈S ⇸ ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw|org.eventb.core.action#_8b0gQjCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw|org.eventb.core.action#_8b0gQjCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resuly"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTlast_endpoint_query_resuly" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poIdentifier name="a_service" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="an_endpoint" org.eventb.core.type="E"/>
-<org.eventb.core.poIdentifier name="endpoints'" org.eventb.core.type="ℙ(S×ℙ(E))"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTHYPlast_endpoint_query_resuly'" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTIDENTlast_endpoint_query_resuly" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a_service∈services" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw|org.eventb.core.guard#_8b0gQDCXEeqMhoZral7PXw"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPlast_endpoint_query_resuly" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTHYPlast_endpoint_query_resuly'" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="an_endpoint∈endpoints(a_service)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw|org.eventb.core.guard#_8b0gQTCXEeqMhoZral7PXw"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="query_endpoints/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTHYPlast_endpoint_query_resulz("/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="a_service∈services⇒a_service∈dom(endpoints)∧endpoints∈S ⇸ ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8b1HUDCXEeqMhoZral7PXw|org.eventb.core.guard#_8b2VcDCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8b1HUDCXEeqMhoZral7PXw|org.eventb.core.guard#_8b2VcDCXEeqMhoZral7PXw"/>
-<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTHYPlast_endpoint_query_resulz("/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTlast_endpoint_query_resulz" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poIdentifier name="result" org.eventb.core.type="ℙ(E)"/>
-<org.eventb.core.poIdentifier name="a_service" org.eventb.core.type="S"/>
-<org.eventb.core.poIdentifier name="last_endpoint_query_result'" org.eventb.core.type="ℙ(E)"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTHYPlast_endpoint_query_resulz(" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTIDENTlast_endpoint_query_resulz" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a_service∈S" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8b1HUDCXEeqMhoZral7PXw|org.eventb.core.guard#_8b1uYTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="result⊆E" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8b1HUDCXEeqMhoZral7PXw|org.eventb.core.guard#_8b1uYjCXEeqMhoZral7PXw"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPlast_endpoint_query_resulz" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTHYPlast_endpoint_query_resulz(" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="a_service∈services⇒result=endpoints(a_service)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8b1HUDCXEeqMhoZral7PXw|org.eventb.core.guard#_8b2VcDCXEeqMhoZral7PXw"/>
-<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="a_service∉services⇒result=(∅ ⦂ ℙ(E))" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8b1HUDCXEeqMhoZral7PXw|org.eventb.core.guard#_8b2VcTCXEeqMhoZral7PXw"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="services⊆S" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwDCXEeqMhoZral7PXw"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="endpoints∈services → ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
-<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="last_endpoint_query_result∈ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwjCXEeqMhoZral7PXw"/>
-</org.eventb.core.poPredicateSet>
+<org.eventb.core.poFile org.eventb.core.poStamp="1">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="E" org.eventb.core.type="ℙ(E)"/>
+        <org.eventb.core.poIdentifier name="S" org.eventb.core.type="ℙ(S)"/>
+        <org.eventb.core.poIdentifier name="E1" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="E2" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="E3" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="E4" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="E5" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="E6" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="S1" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="S2" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="S3" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="S4" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="S5" org.eventb.core.type="S"/>
+        <org.eventb.core.poPredicate name="S6" org.eventb.core.predicate="partition(S,{S1},{S2},{S3},{S4},{S5})" org.eventb.core.source="/service-registry-pattern/c0_service_registry.buc|org.eventb.core.contextFile#c0_service_registry|org.eventb.core.axiom#_azN8hDCYEeqMhoZral7PXw"/>
+        <org.eventb.core.poPredicate name="S7" org.eventb.core.predicate="partition(E,{E1},{E2},{E3},{E4},{E5},{E6})" org.eventb.core.source="/service-registry-pattern/c0_service_registry.buc|org.eventb.core.contextFile#c0_service_registry|org.eventb.core.axiom#_azOjkDCYEeqMhoZral7PXw"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="1">
+        <org.eventb.core.poIdentifier name="services" org.eventb.core.type="ℙ(S)"/>
+        <org.eventb.core.poIdentifier name="endpoints" org.eventb.core.type="ℙ(S×ℙ(E))"/>
+        <org.eventb.core.poIdentifier name="last_endpoint_query_result" org.eventb.core.type="ℙ(E)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="INITIALISATION/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resulu"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(S×ℙ(E)))∈(∅ ⦂ ℙ(S)) → ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poSequent#INITIALISATION\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTlast_endpoint_query_resulu" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="services'" org.eventb.core.type="ℙ(S)"/>
+        <org.eventb.core.poIdentifier name="last_endpoint_query_result'" org.eventb.core.type="ℙ(E)"/>
+        <org.eventb.core.poIdentifier name="endpoints'" org.eventb.core.type="ℙ(S×ℙ(E))"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPlast_endpoint_query_resulu" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTIDENTlast_endpoint_query_resulu" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poSequent name="register/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resulv"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="endpoints{a_service ↦ (∅ ⦂ ℙ(E))}∈services∪{a_service} → ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bwO0DCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poSequent#register\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTlast_endpoint_query_resulv" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+        <org.eventb.core.poIdentifier name="a_service" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="services'" org.eventb.core.type="ℙ(S)"/>
+        <org.eventb.core.poIdentifier name="endpoints'" org.eventb.core.type="ℙ(S×ℙ(E))"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPlast_endpoint_query_resulv" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTIDENTlast_endpoint_query_resulv" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a_service∈S ∖ services" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bwO0DCXEeqMhoZral7PXw|org.eventb.core.guard#_8bwO0jCXEeqMhoZral7PXw"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="unregister/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resulw"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{a_service} ⩤ endpoints∈services ∖ {a_service} → ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bw14jCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poSequent#unregister\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTlast_endpoint_query_resulw" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+        <org.eventb.core.poIdentifier name="a_service" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="services'" org.eventb.core.type="ℙ(S)"/>
+        <org.eventb.core.poIdentifier name="endpoints'" org.eventb.core.type="ℙ(S×ℙ(E))"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPlast_endpoint_query_resulw" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTIDENTlast_endpoint_query_resulw" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a_service∈services" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bw14jCXEeqMhoZral7PXw|org.eventb.core.guard#_8bxc8TCXEeqMhoZral7PXw"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="add_endpoint/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resulx"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="endpoints{a_service ↦ endpoints(a_service)∪{an_endpoint}}∈services → ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8byEATCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poSequent#add_endpoint\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="add_endpoint/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resulx"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="a_service∈dom(endpoints)∧endpoints∈S ⇸ ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8byEATCXEeqMhoZral7PXw|org.eventb.core.action#_8bzSIDCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8byEATCXEeqMhoZral7PXw|org.eventb.core.action#_8bzSIDCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resulx"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTlast_endpoint_query_resulx" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+        <org.eventb.core.poIdentifier name="a_service" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="an_endpoint" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="endpoints'" org.eventb.core.type="ℙ(S×ℙ(E))"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPlast_endpoint_query_resulx" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTIDENTlast_endpoint_query_resulx" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a_service∈services" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8byEATCXEeqMhoZral7PXw|org.eventb.core.guard#_8byrETCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="an_endpoint∈E ∖ union(ran(endpoints))" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8byEATCXEeqMhoZral7PXw|org.eventb.core.guard#_8byrEjCXEeqMhoZral7PXw"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="remove_endpoint/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTHYPlast_endpoint_query_resuly'"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="a_service∈dom(endpoints)∧endpoints∈S ⇸ ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw|org.eventb.core.guard#_8b0gQTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw|org.eventb.core.guard#_8b0gQTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTHYPlast_endpoint_query_resuly'"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="remove_endpoint/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resuly"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="endpoints{a_service ↦ endpoints(a_service) ∖ {an_endpoint}}∈services → ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poSequent#remove_endpoint\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="remove_endpoint/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resuly"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="a_service∈dom(endpoints)∧endpoints∈S ⇸ ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw|org.eventb.core.action#_8b0gQjCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw|org.eventb.core.action#_8b0gQjCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTALLHYPlast_endpoint_query_resuly"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTlast_endpoint_query_resuly" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+        <org.eventb.core.poIdentifier name="a_service" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="an_endpoint" org.eventb.core.type="E"/>
+        <org.eventb.core.poIdentifier name="endpoints'" org.eventb.core.type="ℙ(S×ℙ(E))"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPlast_endpoint_query_resuly'" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTIDENTlast_endpoint_query_resuly" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a_service∈services" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw|org.eventb.core.guard#_8b0gQDCXEeqMhoZral7PXw"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPlast_endpoint_query_resuly" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTHYPlast_endpoint_query_resuly'" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="an_endpoint∈endpoints(a_service)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8bzSITCXEeqMhoZral7PXw|org.eventb.core.guard#_8b0gQTCXEeqMhoZral7PXw"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="query_endpoints/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTHYPlast_endpoint_query_resulz("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="a_service∈services⇒a_service∈dom(endpoints)∧endpoints∈S ⇸ ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8b1HUDCXEeqMhoZral7PXw|org.eventb.core.guard#_8b2VcDCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8b1HUDCXEeqMhoZral7PXw|org.eventb.core.guard#_8b2VcDCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTHYPlast_endpoint_query_resulz("/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTlast_endpoint_query_resulz" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+        <org.eventb.core.poIdentifier name="result" org.eventb.core.type="ℙ(E)"/>
+        <org.eventb.core.poIdentifier name="a_service" org.eventb.core.type="S"/>
+        <org.eventb.core.poIdentifier name="last_endpoint_query_result'" org.eventb.core.type="ℙ(E)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPlast_endpoint_query_resulz(" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTIDENTlast_endpoint_query_resulz" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a_service∈S" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8b1HUDCXEeqMhoZral7PXw|org.eventb.core.guard#_8b1uYTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="result⊆E" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8b1HUDCXEeqMhoZral7PXw|org.eventb.core.guard#_iNHxgPpQEeu8A_twJUwxVA"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPlast_endpoint_query_resulz" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#EVTHYPlast_endpoint_query_resulz(" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="a_service∈services⇒result=endpoints(a_service)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8b1HUDCXEeqMhoZral7PXw|org.eventb.core.guard#_8b2VcDCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="a_service∉services⇒result=(∅ ⦂ ℙ(E))" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.event#_8b1HUDCXEeqMhoZral7PXw|org.eventb.core.guard#_8b2VcTCXEeqMhoZral7PXw"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/service-registry-pattern/m0_service_registry.bpo|org.eventb.core.poFile#m0_service_registry|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="services⊆S" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwDCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="endpoints∈services → ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwTCXEeqMhoZral7PXw"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="last_endpoint_query_result∈ℙ(E)" org.eventb.core.source="/service-registry-pattern/m0_service_registry.bum|org.eventb.core.machineFile#m0_service_registry|org.eventb.core.invariant#_8bvnwjCXEeqMhoZral7PXw"/>
+    </org.eventb.core.poPredicateSet>
 </org.eventb.core.poFile>

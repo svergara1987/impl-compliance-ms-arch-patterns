@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extended_test_suite>
+  <test_case id="1" targets="[unregister]">
+    <global>
+      <step id="1" name="register">
+      <value name="a_service">S1</value>
+    </step>
+      <step id="2" name="unregister">
+      <value name="a_service">S1</value>
+    </step>
+    </global>
+  </test_case>
+</extended_test_suite>

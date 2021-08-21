@@ -1,0 +1,12 @@
+{
+    "id": "serviceregistry",
+    "template": "index.html",
+    "model": "../m2_service_registry_w_health_check.bcm",
+    "observers": "serviceregistry.observers.json",
+    "events": "serviceregistry.events.json",
+    "autoOpen": [
+        "Events",
+        "StateInspector",
+        "CurrentTrace"
+    ]
+}
