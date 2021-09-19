@@ -20,3 +20,4 @@ circuit-breaker-hystrix/target
 **/node_modules
 **/target
 **/vscode
+**/bin
