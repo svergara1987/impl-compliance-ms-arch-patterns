@@ -12,6 +12,9 @@ circuit-breaker-hystrix/target
 **/mvnw.cmd
 **/.settings
 **/.project
+**/*.class
+**/*.jar
+**/.DS_Store
 **/.classpath
 **/.ipynb_checkpoints
 **/node_modules
