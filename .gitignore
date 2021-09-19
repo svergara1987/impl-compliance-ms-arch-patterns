@@ -19,3 +19,4 @@ circuit-breaker-hystrix/target
 **/.ipynb_checkpoints
 **/node_modules
 **/target
+**/vscode
